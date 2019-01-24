@@ -1,0 +1,104 @@
+#!/bin/bash
+
+set -e
+
+source /usr/libexec/s2i/env
+
+if [ "$DEV_MODE" == true ] ; then
+	set -x
+fi
+
+echo "---> Installing application source"
+cp -Rfp /tmp/src/. ./
+
+if [ ! -z $HTTP_PROXY ]; then
+	echo "---> Setting npm http proxy to $HTTP_PROXY"
+	npm config set proxy $HTTP_PROXY
+fi
+
+if [ ! -z $http_proxy ]; then
+	echo "---> Setting npm http proxy to $http_proxy"
+	npm config set proxy $http_proxy
+fi
+
+if [ ! -z $HTTPS_PROXY ]; then
+	echo "---> Setting npm https proxy to $HTTPS_PROXY"
+	npm config set https-proxy $HTTPS_PROXY
+fi
+
+if [ ! -z $https_proxy ]; then
+	echo "---> Setting npm https proxy to $https_proxy"
+	npm config set https-proxy $https_proxy
+fi
+
+# Change the npm registry mirror if provided
+if [ ! -z "$NPM_MIRROR" ]; then
+	echo "---> Setting the npm package mirror to $NPM_MIRROR"
+	npm config set registry $NPM_MIRROR
+fi
+
+echo "---> Building your Node application from source"
+echo -e "Current git config"
+echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - git config init" >> /tmp/odo-times.log
+git config --list
+echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - git config end" >> /tmp/odo-times.log
+
+
+if [ ! -z "$YARN_ENABLED" ]; then
+	echo "---> Using 'yarn install' with YARN_ARGS"
+  echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - yarn install init" >> /tmp/odo-times.log
+	yarn install $YARN_ARGS
+  echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - yarn install end" >> /tmp/odo-times.log
+else
+	echo "---> Installing dependencies"
+	if [ "$DEV_MODE" == true ]; then
+		echo "---> Using 'npm install'"
+    echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - npm install init" >> /tmp/odo-times.log
+		npm install
+    echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - npm install end" >> /tmp/odo-times.log
+
+		#do not fail when there is no build script
+		echo "---> Building in development mode"
+    echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - npm run build init" >> /tmp/odo-times.log
+		npm run build --if-present
+    echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - npm run build end" >> /tmp/odo-times.log
+	else
+		HAS_BUILD=$(node -e "console.log(require('./package.json').scripts.build ? true : false)")
+
+		# check to see if there is a build script by inspecting the package.json
+		if [ "$HAS_BUILD" == true ]; then
+			# Do a npm install to get the dev depdencies
+			echo "---> Installing dev dependencies"
+      echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') -  npm install development init" >> /tmp/odo-times.log
+			NODE_ENV=development npm install
+      echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - npm install development end" >> /tmp/odo-times.log
+			#do not fail when there is no build script
+			echo "---> Building in production mode"
+      echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - npm run build init" >> /tmp/odo-times.log
+			npm run build --if-present
+      echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - npm run build end" >> /tmp/odo-times.log
+		else
+			echo "---> Using 'npm install -s --only=production'"
+      echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - npm install prod init" >> /tmp/odo-times.log
+			npm install -s --only=production
+      echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - npm install prod end" >> /tmp/odo-times.log
+		fi
+
+		echo "---> Pruning the development dependencies"
+    echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - npm prune init" >> /tmp/odo-times.log
+		# npm prune
+    echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - npm prune end " >> /tmp/odo-times.log
+	fi
+fi
+
+echo "---> Cleaning up npm cache"
+echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - rm .npm init" >> /tmp/odo-times.log
+rm -rf .npm
+echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - rm .npm end" >> /tmp/odo-times.log
+
+
+echo "---> Fix permissions on app-root"
+echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - fix-perms init" >> /tmp/odo-times.log
+# fix-permissions /opt/app-root
+echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - fix-perms end" >> /tmp/odo-times.log
+

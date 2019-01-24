@@ -1,0 +1,7 @@
+*.swp
+.bash_history
+.config/butterfly
+.config/configstore
+.kube
+frontend
+backend

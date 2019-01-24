@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -x
+
+set -eo pipefail
+
+# Try with latest odo
+# ----------------
+curl -kLs https://dl.bintray.com/odo/odo/latest/linux-amd64/odo -o /opt/app-root/bin/odo-latest
+chmod 755 /opt/app-root/bin/odo-latest
+# ----------------
+
+odo utils config set UpdateNotification false
+
+if [ x"$PROJECT_NAMESPACE" != x"" ]; then
+    # TODO: Change back to view once the issue is solved
+    oc policy add-role-to-user edit -z default -n "$PROJECT_NAMESPACE" || true
+fi

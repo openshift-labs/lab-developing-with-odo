@@ -1,0 +1,62 @@
+PRE-REQUISITES
+-------------
+Make sure images are in the cluster:
+oc import-image java:latest -n openshift
+oc import-image nodejs:latest -n openshift
+oc import-image mongodb:3.2 -n openshift
+
+
+
+WORKSHOP
+-------------
+
+odo app create parksmap
+-------
+cd ~
+git clone https://github.com/grahamdumpleton/nationalparks-js backend
+cd ~/backend
+odo create nodejs backend
+odo push
+odo log -f
+# Ctrl-C
+odo url create
+## THIS APP TAKES WAY TOO LONG TO START
+# curl $URL/ws/info/
+## OUTPUT: {"id":"nationalparks-js","displayName":"National Parks (JS)","type":"cluster","center":{"latit
+ude":"47.039304","longitude":"14.505178"},"zoom":4}
+# curl $URL/ws/data/all
+# curl $URL/ws/data/load
+# curl $URL/ws/data/all
+--------
+odo catalog list services
+odo service create mongodb-persistent mongo
+odo service list
+odo link mongo --component backend
+-------
+git clone https://github.com/grahamdumpleton/parksmap-web frontend
+cd ~/frontend
+mvn package
+odo create java frontend --binary=target/parksmap-web.jar
+odo push
+odo log -f
+# Ctrl+C
+odo url create --port 8080
+odo link backend
+
+
+
+
+
+
+ISSUES
+--------
+- Get details of a service binding in order to know the name of the variables in it
+- Map variables on link
+- Logs on service
+- Services don't provide a secret with it's location (HOST/PORT)
+- `odo service create mongodb-ephemeral` works but `odo service create mongodb-ephemeral mongodb` doesn't create the proper binding secret
+- when `odo service create` kind is not required or we should filter by name.
+
+
+
+
