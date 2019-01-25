@@ -1,7 +1,7 @@
 ---
 Title: Creating a new binary component
 PrevPage: 050-creating-an-application
-NextPage: 070-deploying-component-from-source-code
+NextPage: 061-exposing-components-to-public
 ---
 
 A selection of runtimes, frameworks, and other components is available on an OpenShift cluster for building your applications.
