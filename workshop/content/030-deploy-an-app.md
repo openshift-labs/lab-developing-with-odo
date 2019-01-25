@@ -36,14 +36,14 @@ Once the component is available, we need to push our source code to it:
 odo push
 ```
 
-`odo` has pushed the code into the component and this has build built the application and it's now running it.
+`odo` has pushed the code into the component, built the application, and run it.
 
-Now the only thing left is verify that our application is running by accessing it from our Browser. Let's create a URL for our component that will give as an entry point to our application.
+Now the only thing left is verify that our application is running by accessing it from our browser. Let's create a URL for our component that will give us an entry point to our application.
 
 ```execute-1
 odo url create
 ```
 
-__NOTE__: Copying and pasting from the terminal can be problematic. We're working on fixing this issue. Use the browser's right click copy menu item.
+To visit your application, copy the URL from the terminal window, open a new browser window and paste it into the URL address bar.
 
-This simple example shows how easy is to use the tool, as it takes many decisions out of your way. In the following labs we're going to go deeper into some of these decisions and how to explicitly take them.
+This simple example shows how easy is to use the tool, as it takes many decisions out of your way. In the following labs we're going to go deeper into how to use `odo` and what it is doing.

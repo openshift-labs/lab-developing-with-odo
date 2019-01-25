@@ -14,15 +14,17 @@ We can verify all existing applications on our project:
 odo app list
 ```
 
-As you will notice from the output, there are no existing applications on our current project. Let's create one. We will name our application `parksmap`:
+As you have already deployed the sample application, you should be able to see it listed.
+
+Let's create a new one. We will name this application `parksmap`:
 
 ```execute-1
 odo app create parksmap
 ```
 
-Once thing you should notice is how the prompt display has changed. This will not happen on every installation of ``odo`` but for this lab, we're displaying on the prompt text the name of the application you're working with and the name of the project you're working with.
+One thing you should notice is how the prompt display has changed. This will not happen on every installation of ``odo`` but for this lab, we're displaying on the prompt text the name of the application you're working with and the name of the project you're working with.
 
-Now, you can verify that there is only one application by executing the same command as before:
+Now, you can verify that you have two applications by executing the same command as before:
 
 ```execute-1
 odo app list

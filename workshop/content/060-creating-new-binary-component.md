@@ -16,7 +16,11 @@ odo catalog list components
 
 __NOTE__: Sites can customize the software catalog, so the list will vary on different OpenShift clusters. For this course, the components we are interested in are ``java`` and ``nodejs``.
 
-We're going to work now on a ``Java`` component that is part of our application. The source code for this component, that lives in ``https://github.com/grahamdumpleton/parksmap-web``, has already been checked out and made available in the environment you are using.
+We're going to work now on a ``Java`` component that is part of our application. The source code for this component, that lives in:
+
+https://github.com/grahamdumpleton/parksmap-web
+
+has already been checked out and made available in the environment you are using.
 
 Starting with the application frontend, change into the directory ``frontend``:
 
@@ -96,7 +100,7 @@ You can verify that the Java runtime has started your application by tailing the
 odo log -f
 ```
 
-Hit `Crtl+C` when you're doing following the logs.
+Select the terminal window and enter `Crtl+C` when you're finished checking out the logs.
 
 ## Component configuration
 When creating a component, some configuration will be taken by default, but there is a way to override these defaults.
