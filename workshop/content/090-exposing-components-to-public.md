@@ -1,15 +1,21 @@
 ---
 Title: Exposing components to public
-PrevPage: 081-linking-application-components
-NextPage: 100-making-changes-to-source-code
+PrevPage: 080-linking-components-to-services
+NextPage: 091-linking-application-components
 ---
 
-We have deployed our sample application's backend component and connected the frontend component to it. Let's create an external URL for our application so we can see it in action:
+Let's create an external URL for our frontend component so we can see it in action:
 
 ```execute-1
 odo url create frontend
 ```
 
+This time, we will get an error, because this component exposes 3 ports and we need to be explicit about which one we want to expose.
+
+```execute-1
+odo url create frontend --port 8080
+```
+
 The URL created for the application will be displayed. Visit the URL in your web browser to view the application.
 
-http://frontend-wildwest-%project_namespace%.%cluster_subdomain%
+http://frontend-parksmap-%project_namespace%.%cluster_subdomain%

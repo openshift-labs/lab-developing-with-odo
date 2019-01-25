@@ -1,7 +1,7 @@
 ---
 Title: Linking components to services
 PrevPage: 080-linking-components-to-services
-NextPage: 090-exposing-components-to-public
+NextPage: 081-change-active-component
 ---
 
 Now that our database is deployed, we need to connect to it from our `backend` so they can communicate. OpenShift provides mechanisms to publish communication bindings from a program to its clients. This is referred to as linking.
