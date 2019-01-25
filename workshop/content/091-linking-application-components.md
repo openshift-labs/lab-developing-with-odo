@@ -18,6 +18,22 @@ This will inject configuration into the frontend about the backend and restart t
 
 Some components might expose multiple ports, and you need to select which one is the appropriate to use. In case you don't specify the port to use, you will see a nice warning message instructing you how to best proceed.
 
-Your frontend component will be redeployed. You can check the process with `odo log`. Once the component has succesfully been re-deployed you can see the changes in the map URL:
+Your frontend component will be redeployed.
+
+__NOTE__: We have found a bug in `odo` as we were testing this lab and you'll need to re-push your application again. This will be fixed in the coming week. Trust us :-D
+
+```execute-1
+odo push frontend
+```
+
+You can check the the startup logs:
+
+```execute-1
+odo log -f
+```
+
+Once the component has succesfully been re-deployed you can see the changes in the map URL:
 
 http://frontend-parksmap-%project_namespace%.%cluster_subdomain%
+
+You should now see a nice map showing where you can find Nationalparks.
