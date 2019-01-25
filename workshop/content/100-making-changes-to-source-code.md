@@ -1,7 +1,7 @@
 ---
 Title: Making changes to source
 PrevPage: 090-exposing-components-to-public
-NextPage: 110-installing-odo
+NextPage: 105-whats-next
 ---
 
 We've deployed the first version of our sample application and tested it by visiting it with a browser. Let's look at how OpenShift and ``odo`` help make it easier to iterate on that app once it's running.

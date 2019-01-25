@@ -1,5 +1,1 @@
-# Develop applications on OpenShift as regular developers
-
-
-
-# Thanks for coming
+[Slides](devconf-slides.pdf)

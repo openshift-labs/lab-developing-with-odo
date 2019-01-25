@@ -1,6 +1,6 @@
 ---
 Title: Installing odo
-PrevPage: 100-making-changes-to-source-code
+PrevPage: 105-whats-next
 NextPage: 120-finish
 ---
 
