@@ -8,6 +8,7 @@ ENV TERMINAL_TAB=split
 
 RUN git clone https://github.com/openshift-labs/beercan-shooter-game.git sample && \
     fix-permissions /opt/app-root/src
+COPY .workshop/assets/nodejs_assemble sample/.s2i/bin/assemble
 
 RUN git clone https://github.com/grahamdumpleton/nationalparks-js backend && \
     git clone https://github.com/grahamdumpleton/parksmap-web frontend && \

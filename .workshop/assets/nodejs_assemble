@@ -86,19 +86,19 @@ else
 
 		echo "---> Pruning the development dependencies"
     echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - npm prune init" >> /tmp/odo-times.log
-		# npm prune
+		# npm prune
     echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - npm prune end " >> /tmp/odo-times.log
 	fi
 fi
 
 echo "---> Cleaning up npm cache"
 echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - rm .npm init" >> /tmp/odo-times.log
-rm -rf .npm
+# rm -rf .npm
 echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - rm .npm end" >> /tmp/odo-times.log
 
 
 echo "---> Fix permissions on app-root"
 echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - fix-perms init" >> /tmp/odo-times.log
-# fix-permissions /opt/app-root
+# fix-permissions /opt/app-root
 echo "node.js assemble: $(date +'%Y%m%d.%H%M%S-%3N') - fix-perms end" >> /tmp/odo-times.log
 
