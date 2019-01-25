@@ -1,6 +1,6 @@
 ---
 Title: Making changes to source
-PrevPage: 090-exposing-components-to-public
+PrevPage: 091-linking-application-components
 NextPage: 105-whats-next
 ---
 
