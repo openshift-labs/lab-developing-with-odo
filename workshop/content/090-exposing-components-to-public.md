@@ -1,6 +1,6 @@
 ---
 Title: Exposing components to public
-PrevPage: 080-linking-components-to-services
+PrevPage: 081-change-active-component
 NextPage: 091-linking-application-components
 ---
 

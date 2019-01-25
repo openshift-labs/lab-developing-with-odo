@@ -1,6 +1,6 @@
 ---
 Title: Linking components to services
-PrevPage: 075-create-service
+PrevPage: 075-create-a-service
 NextPage: 081-change-active-component
 ---
 
