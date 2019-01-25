@@ -47,22 +47,21 @@ You can see the current status by executing 'odo service list'
 
 Now we can wait until the service is provisioned:
 
-``execute-1
+```execute-1
 odo service list
 ```
 
-Once provisioned, we should see similar output to this:
+Keep re-running this command, and once provisioned, we should see similar output to this:
 
 ```bash
-odo service list
 NAME                  TYPE                  STATUS
 mongodb-ephemeral     mongodb-ephemeral     ProvisionedAndBound
 ```
 
-We could have not used the interactive mode, and provide all these configuration via command flags, but for *services* that can have big parameterization this is convenient. The default behavior can still be achieved.
+Instead of interactive mode, you could instead have provided all these configuration via command line flags, but for *services* that have many parameters this can be inconvenient. A separate example using PostgreSQL, and not MongoDB as we want here, where command line flags were used is:
 
 ```bash
 odo service create dh-postgresql-apb my-postgresql-db --plan dev -p postgresql_user=luke -p postgresql_password=secret
 ```
 
-Perfect, now our database is created. Let's move on.
+We have our MongoDB database already running though, so let's move on.
