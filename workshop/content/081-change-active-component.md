@@ -40,5 +40,5 @@ odo component set frontend
 And verify that actually it was properly set:
 
 ```execute-1
-odo component list
+odo list
 ```
