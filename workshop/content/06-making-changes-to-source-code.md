@@ -33,4 +33,4 @@ There may be a slight delay before ``odo`` recognizes the change. Once the chang
 
 Once it does, refresh the application's page in the web browser. You will see the new name in the web interface for the application.
 
-http://frontend-wildwest-%user_namespace%.%cluster_subdomain%
+http://frontend-wildwest-%project_namespace%.%cluster_subdomain%

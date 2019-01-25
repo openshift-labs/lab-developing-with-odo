@@ -12,4 +12,4 @@ odo url create frontend
 
 The URL created for the application will be displayed. Visit the URL in your web browser to view the application.
 
-http://frontend-wildwest-%user_namespace%.%cluster_subdomain%
+http://frontend-wildwest-%project_namespace%.%cluster_subdomain%
