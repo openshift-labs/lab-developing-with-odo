@@ -6,6 +6,9 @@ RUN source /opt/workshop/etc/profile.d/python.sh && \
 
 ENV TERMINAL_TAB=split
 
+RUN git clone https://github.com/openshift-labs/beercan-shooter-game.git sample && \
+    fix-permissions /opt/app-root/src
+
 RUN git clone https://github.com/grahamdumpleton/nationalparks-js backend && \
     git clone https://github.com/grahamdumpleton/parksmap-web frontend && \
     (cd frontend && mvn package && mvn clean) && \

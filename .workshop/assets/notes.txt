@@ -12,6 +12,15 @@ WORKSHOP
 
 odo app create parksmap
 -------
+git clone https://github.com/grahamdumpleton/parksmap-web frontend
+cd ~/frontend
+mvn package
+odo create java frontend --binary=target/parksmap-web.jar
+odo push
+odo log -f
+# Ctrl+C
+odo url create --port 8080
+-------
 cd ~
 git clone https://github.com/grahamdumpleton/nationalparks-js backend
 cd ~/backend
@@ -33,15 +42,8 @@ odo service create mongodb-persistent mongo
 odo service list
 odo link mongo --component backend
 -------
-git clone https://github.com/grahamdumpleton/parksmap-web frontend
-cd ~/frontend
-mvn package
-odo create java frontend --binary=target/parksmap-web.jar
-odo push
-odo log -f
-# Ctrl+C
-odo url create --port 8080
-odo link backend
+odo link backend --component frontend
+
 
 
 

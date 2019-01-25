@@ -1,7 +1,6 @@
 ---
-Title: Getting started with odo in 5 minutes
-NextPage: 01-creating-an-application
-Sort: 10
+Title: Developing applications on OpenShift as regular developers
+NextPage: 020-whats-odo
 ---
 
 In this self paced tutorial you will learn how to use OpenShift Do (`odo`) to build and deploy applications on the OpenShift Container Platform.

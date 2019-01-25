@@ -1,7 +1,7 @@
 ---
 Title: Deploying component from source code
-PrevPage: 02-creating-new-binary-component.md
-NextPage: 04-linking-application-components.md
+PrevPage: 060-creating-new-binary-component
+NextPage: 080-linking-application-components
 ---
 
 With the ``backend`` component running, we are ready to bring up the frontend component and connect it to the backend. Once again, source code for the component is already available in the environment you are using. Change directories to the ``frontend`` directory.

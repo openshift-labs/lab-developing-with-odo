@@ -1,7 +1,7 @@
 ---
 Title: Creating a new binary component
-PrevPage: 01-creating-an-application
-NextPage: 03-deploying-component-from-source-code
+PrevPage: 050-creating-an-application
+NextPage: 070-deploying-component-from-source-code
 ---
 
 A selection of runtimes, frameworks, and other components is available on an OpenShift cluster for building your applications.
@@ -16,21 +16,21 @@ odo catalog list components
 
 __NOTE__: Sites can customize the software catalog, so the list will vary on different OpenShift clusters. For this course, the components we are interested in are ``java`` and ``nodejs``.
 
-We're going to work now on a ``Java`` component that is part of our application. The source code for this component, that lives in ``https://github.com/openshift-evangelists/Wild-West-Frontend.git``, has already been checked out and made available in the environment you are using.
+We're going to work now on a ``Java`` component that is part of our application. The source code for this component, that lives in ``https://github.com/grahamdumpleton/parksmap-web``, has already been checked out and made available in the environment you are using.
 
-Starting with the application backend, change into the directory ``backend``:
+Starting with the application frontend, change into the directory ``frontend``:
 
 ```execute-1
-cd ~/backend
+cd ~/frontend
 ```
 
-Take a look at the contents of the `backend` directory. It's a regular Java Spring Boot application using the Maven build system.
+Take a look at the contents of the `frontend` directory. It's a regular Java Spring Boot application using the Maven build system.
 
 ```execute-1
 ls
 ```
 
-To build the ``backend`` source files with Maven and create a JAR file, run:
+To build the ``frontend`` source files with Maven and create a JAR file, run:
 
 ```execute-1
 mvn package
@@ -38,24 +38,25 @@ mvn package
 
 __NOTE__: This environment has an .m2/repository available so the build speed is comparable to what you would find on your local laptop anytime after your first build.
 
-With the backend's ``.jar`` file built, the next step is to use `odo` to deploy and run it atop the Java runtime we saw earlier in the software catalog.
+With the frontend's ``.jar`` file built, the next step is to use `odo` to deploy and run it atop the Java runtime we saw earlier in the software catalog.
 
-Use ``odo`` to create a *component* named ``backend``, of *component-type* ``java``. Because we had prebuilt the binary artifact for the application, we will use a binary build, supplying the path to the ``.jar`` file.
+Use ``odo`` to create a *component* named ``frontend``, of *component-type* ``java``. Because we had prebuilt the binary artifact for the application, we will use a binary build, supplying the path to the ``.jar`` file.
 
 ```execute-1
-odo create java backend --binary target/wildwest-1.0.jar
+odo create java frontend --binary target/parksmap-web.jar
 ```
 
 When the container is created, ``odo`` will display output similar to that below, telling you what it is doing:
 
-```
+```bash
 ✓   Checking component
 ✓   Checking component version
 ✓   Creating component backend
-OK  Component 'backend' was created and ports 8778/TCP,8080/TCP,8443/TCP were opened
-OK  Component 'backend' is now set as active component
+OK  Component 'frontend' was created and ports 8778/TCP,8080/TCP,8443/TCP were opened
+OK  Component 'frontend' is now set as active component
 To push source code to the component run 'odo push'
 ```
+
 The application is not yet deployed on OpenShift. With a single ``odo create`` command, OpenShift has created a container with the Java application server ready to have your application deployed to it. This container is not pushed into OpenShift's integrated container registry as it will be used for developing your application in an iterative way. This container is deployed into a pod running on the OpenShift cluster.
 
 Let's verify that the component exists already on the platform and is ready for your application:
@@ -64,14 +65,14 @@ Let's verify that the component exists already on the platform and is ready for 
 odo list
 ```
 
-This should report one component, named ``backend``:
+This should report one component, named ``frontend``:
 
 ```
 ACTIVE     NAME        TYPE
-*          backend     java
+*          frontend     java
 ```
 
-Since ``backend`` is a binary component, as specified in the ``odo create`` command above, changes to the program's source code should be followed by pushing the artifact to the running container. After ``mvn`` compiled a new JAR file, the updated program would be updated in the ``backend`` component with the ``odo push`` command. To push up the binary, run:
+Since ``frontend`` is a binary component, as specified in the ``odo create`` command above, changes to the program's source code should be followed by pushing the artifact to the running container. After ``mvn`` compiled a new JAR file, the updated program would be updated in the ``frontend`` component with the ``odo push`` command. To push up the binary, run:
 
 ```execute-1
 odo push
@@ -80,11 +81,11 @@ odo push
 When the push completes, ``odo`` will display output similar to:
 
 ```
-Pushing changes to component: backend
+Pushing changes to component: frontend
  ✓   Waiting for pod to start
  ✓   Copying files to pod
  ✓   Building component
- OK  Changes successfully pushed to component: backend
+ OK  Changes successfully pushed to component: frontend
 ```
 
 As you would probably have noticed, the artifact has been pushed to the container, and the process in that container restarted.
@@ -105,7 +106,7 @@ An example is the memory and cpu for you component. When deploying components in
 If you want to explicitly set these values, you could have done before:
 
 ```
-odo create java backend --binary target/wildwest-1.0.jar \
+odo create java frontend --binary target/parksmap-web.jar \
     --memory 1Gi --cpus 1
 ```
 
@@ -114,7 +115,7 @@ This will guarantee that your component will be created requesting 1 GB of memor
 If you want your component to get some minimum values and grow if needed, you could also have done:
 
 ```
-odo create java backend --binary target/wildwest-1.0.jar \
+odo create java frontend --binary target/parksmap-web.jar \
     --min-memory 512Mi \
     --max-memory 1Gi \
     --min-cpu 0.5 \
@@ -124,6 +125,6 @@ odo create java backend --binary target/wildwest-1.0.jar \
 You can also set environment variables for you component at creation time. These will be passed to your component and you will be able to use them within your application's code.
 
 ```
-odo create java backend --binary target/wildwest-1.0.jar \
+odo create java frontend --binary target/parksmap-web.jar \
     --env DEBUG=true
 ```

@@ -1,7 +1,7 @@
 ---
 Title: Linking application components
-PrevPage: 03-deploying-component-from-source-code
-NextPage: 05-exposing-components-to-public
+PrevPage: 070-deploying-component-from-source-code
+NextPage: 090-exposing-components-to-public
 ---
 
 With both components of our application running on the cluster, we need to connect them so they can communicate. OpenShift provides mechanisms to publish communication bindings from a program to its clients. This is referred to as linking.

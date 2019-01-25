@@ -1,7 +1,7 @@
 ---
 Title: Exposing components to public
-PrevPage: 04-linking-application-components
-NextPage: 06-making-changes-to-source-code
+PrevPage: 080-linking-application-components
+NextPage: 100-making-changes-to-source-code
 ---
 
 We have deployed our sample application's backend component and connected the frontend component to it. Let's create an external URL for our application so we can see it in action:
