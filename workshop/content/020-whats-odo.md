@@ -20,5 +20,5 @@ OpenShift Do (`odo`) is a CLI tool for developers who are writing, building, and
 In odo there are some terms that people often times use for different purposes, that's why we need to define them here for common understanding moving forward:
 
 - __Component__: A constituent part of an application that will be where your business logic will reside. A component will have different attributes like storage, configuration, urls, etc. Multiple component types are currently supported, like nodejs, perl, php, python, ruby, etc.
-- __Service__: A service will typically be a database or a "service" a component links / depends on, but that it has no business logic in it. For example: MariaDB, Jenkins, MySQL. These comes from the OpenShift "Service Catalog" that has to be enabled within your cluster.
+- __Service__: A service will typically be a database or a "service" a component links / depends on, but that it has no business logic in it. For example: MariaDB, Jenkins, MySQL. These come from the OpenShift "Service Catalog" that has to be enabled within your cluster.
 - __Application__: Is, well, your application! It consists of multiple components and services working collaboratively providing you the full business value.
