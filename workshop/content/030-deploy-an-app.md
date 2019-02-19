@@ -46,4 +46,4 @@ odo url create
 
 To visit your application, copy the URL from the terminal window, open a new browser window and paste it into the URL address bar.
 
-This simple example shows how easy is to use the tool, as it takes many decisions out of your way. In the following labs we're going to go deeper into how to use `odo` and what it is doing.
+This simple example shows how easy it is to use the tool, as it takes many decisions out of your way. In the following labs we're going to go deeper into how to use `odo` and what it is doing.
