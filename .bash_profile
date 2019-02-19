@@ -1,3 +1,6 @@
+source <(kubectl completion bash)
+source <(oc completion bash)
+
 if hash powerline-shell 2>/dev/null; then
     function _update_ps1() {
         PS1=$(powerline-shell $?)
