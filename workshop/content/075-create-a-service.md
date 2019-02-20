@@ -16,7 +16,7 @@ Or you can search the catalog by keywords. As we need a *mongodb* database, let'
 odo catalog search service mongodb
 ```
 
-Typically, the creation of this services can be complex as they might require a huge amount of parameterization that might not be known to the user. For this, `odo` provides an interactive mode that is really handy. Let's create a mongodb database and see it in action:
+Often, the creation of these services can be complex as they might require a huge amount of parameterization that might not be known to the user. For this, `odo` provides an interactive mode that is really handy. Let's create a mongodb database and see it in action:
 
 ```execute-1
 odo service create
@@ -58,7 +58,7 @@ NAME                  TYPE                  STATUS
 mongodb-ephemeral     mongodb-ephemeral     ProvisionedAndBound
 ```
 
-Instead of interactive mode, you could instead have provided all these configuration via command line flags, but for *services* that have many parameters this can be inconvenient. A separate example using PostgreSQL, and not MongoDB as we want here, where command line flags were used is:
+Instead of interactive mode, you could instead have provided all this configuration via command line flags, but for *services* that have many parameters this can be inconvenient. A separate example using PostgreSQL, and not MongoDB as we want here, where command line flags were used is:
 
 ```bash
 odo service create dh-postgresql-apb my-postgresql-db --plan dev -p postgresql_user=luke -p postgresql_password=secret
