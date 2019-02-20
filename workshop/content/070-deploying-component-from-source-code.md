@@ -54,7 +54,7 @@ Select the terminal window and enter:
 
 when you're finished checking out the logs.
 
-Once we have our application up an running, we need to test it works. We're going to create a URL for it, as we did before for the frontend.
+Once we have our application up and running, we need to test it works. We're going to create a URL for it, as we did before for the frontend.
 
 ```execute-1
 odo url create backend
