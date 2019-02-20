@@ -116,8 +116,10 @@ An example is the memory and cpu for your component. When deploying components i
 If you want to explicitly set these values, you could have done before:
 
 ```
-odo create java frontend --binary target/parksmap-web.jar \
-    --memory 1Gi --cpu 1
+odo create java frontend \
+    --binary target/parksmap-web.jar \
+    --memory 1Gi \
+    --cpu 1
 ```
 
 This will guarantee that your component will be created requesting 1 GB of memory as minimum and maximum and 1 CPU as minimum and maximum.
@@ -125,7 +127,8 @@ This will guarantee that your component will be created requesting 1 GB of memor
 If you want your component to get some minimum values and grow if needed, you could also have done:
 
 ```
-odo create java frontend --binary target/parksmap-web.jar \
+odo create java frontend \
+    --binary target/parksmap-web.jar \
     --min-memory 512Mi \
     --max-memory 1Gi \
     --min-cpu 0.5 \
