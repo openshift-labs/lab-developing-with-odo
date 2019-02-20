@@ -16,7 +16,7 @@ You should see similar output to this:
 ✗  port for the component frontend is required as it exposes 3 ports: 8080,8443,8778
 ```
 
-Since this component exposes 3 different ports, we need to explictly define which one is the one we want for our external access:
+Since this component exposes 3 different ports, we need to explicitly define which one is the one we want for our external access:
 
 ```execute-1
 odo url create frontend --port 8080
