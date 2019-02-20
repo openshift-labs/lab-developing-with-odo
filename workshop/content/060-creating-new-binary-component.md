@@ -135,7 +135,7 @@ odo create java frontend \
     --max-cpu 1
 ```
 
-You can also set environment variables for you component at creation time. These will be passed to your component and you will be able to use them within your application's code.
+You can also set environment variables for your component at creation time. These will be passed to your component and you will be able to use them within your application's code.
 
 ```
 odo create java frontend --binary target/parksmap-web.jar \
