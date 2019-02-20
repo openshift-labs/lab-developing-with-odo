@@ -9,26 +9,28 @@ We've deployed the first version of our sample application and tested it by visi
 Let's first get back to our `nodejs backend` component.
 
 ```execute-1
-odo component set frontend
+odo component set backend
 ```
 
-Let's also make sure we're in the right directory on both terminals:
+Let's also make sure we're in the right directory on the upper terminal:
 
 ```execute-1
-cd ~/frontend
+cd ~/backend
 ```
+
+and the lower terminal.
 
 ```execute-2
-cd ~/frontend
+cd ~/backend
 ```
 
-First, we start the ``odo`` tool to ``watch`` for changes on the file system in the background:
+Now we start the ``odo`` tool to ``watch`` for changes on the file system in the background:
 
 ```execute-2
 odo watch
 ```
 
-Let's change the displayed name for our backend. We edit the file `bin/config.js`.
+To change the displayed name for our backend, we edit the file `bin/config.js`.
 
 ```execute-1
 vi bin/config.js
@@ -37,13 +39,13 @@ vi bin/config.js
 make a change to the file:
 
 ```execute-1
-:1,$s/National Parks/Worldwide national parks/
+:1,$s/National Parks/Worldwide National Parks/
 ```
 
 and save the file:
 
 ```execute-1
-:w
+:wq
 ```
 
 There may be a slight delay before ``odo`` recognizes the change. Once the change is recognized, ``odo`` will push the changes to the ``frontend`` component and print its status to the terminal.
@@ -56,4 +58,10 @@ curl http://backend-parksmap-%project_namespace%.%cluster_subdomain%/ws/info/
 
 __NOTE__: The same bug as before also makes the watch operation missbehave and be slow. As we said before, this will be fixed in the coming week. Trust us :-D
 
-Enter `Ctrl+C` in the terminal below to end the watch command.
+Hit:
+
+```execute-2
+<ctrl+c>
+```
+
+in the lower terminal to stop the watch command.
