@@ -45,4 +45,4 @@ Once the component has successfully been re-deployed you can see the changes in 
 
 http://frontend-parksmap-%project_namespace%.%cluster_subdomain%
 
-You should now see a nice map showing where you can find Nationalparks.
+You should now see a nice map showing where you can find national parks.
