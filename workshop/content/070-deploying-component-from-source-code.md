@@ -89,4 +89,10 @@ curl http://backend-parksmap-%project_namespace%.%cluster_subdomain%/ws/data/all
 
 You should see an error message in our component log. That is expected. Let's move on and deploy a database and link that database to our backend.
 
-Terminate the tailing log command manually, by using `Ctrl+C` in that terminal.
+Terminate the tailing log by entering:
+
+```execute-1
+<ctrl+c>
+```
+
+in that terminal.
