@@ -33,7 +33,15 @@ You can check the the startup logs:
 odo log -f
 ```
 
-Once the component has succesfully been re-deployed you can see the changes in the map URL:
+Hit:
+
+```execute-1
+<ctrl+c>
+```
+
+in the terminal to stop tailing the logs.
+
+Once the component has successfully been re-deployed you can see the changes in the map URL:
 
 http://frontend-parksmap-%project_namespace%.%cluster_subdomain%
 
