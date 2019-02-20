@@ -111,7 +111,7 @@ when you're finished checking out the logs.
 ## Component configuration
 When creating a component, some configuration will be inherited by default, but there is a way to override these defaults.
 
-An example is the memory and cpu for you component. When deploying components in an OpenShift platform, ``odo`` will not impose any configuration for cpu and memory, but sometimes the platform does impose some values for the minimum and maximum cpu and memory a deployment can have.
+An example is the memory and cpu for your component. When deploying components in an OpenShift platform, ``odo`` will not impose any configuration for cpu and memory, but sometimes the platform does impose some values for the minimum and maximum cpu and memory a deployment can have.
 
 If you want to explicitly set these values, you could have done before:
 
