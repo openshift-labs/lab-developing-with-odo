@@ -100,7 +100,13 @@ You can verify that the Java runtime has started your application by tailing the
 odo log -f
 ```
 
-Select the terminal window and enter `Crtl+C` when you're finished checking out the logs.
+Select the terminal window and enter:
+
+```execute-1
+<ctrl+c>
+```
+
+when you're finished checking out the logs.
 
 ## Component configuration
 When creating a component, some configuration will be inherited by default, but there is a way to override these defaults.
