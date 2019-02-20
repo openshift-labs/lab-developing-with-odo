@@ -23,6 +23,7 @@ Your frontend component will be redeployed.
 __NOTE__: We have found a bug in `odo` as we were testing this lab and you'll need to re-push your application again. This will be fixed in the coming week. Trust us :-D
 
 ```execute-1
+cd ~/frontend
 odo push frontend
 ```
 
