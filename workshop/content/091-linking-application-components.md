@@ -1,6 +1,6 @@
 ---
 Title: Linking application components
-PrevPage: 090-exposing-components-to-public
+PrevPage: 081-change-active-component
 NextPage: 100-making-changes-to-source-code
 ---
 

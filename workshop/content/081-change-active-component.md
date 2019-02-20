@@ -1,7 +1,7 @@
 ---
 Title: Linking components to services
 PrevPage: 080-linking-components-to-services
-NextPage: 090-exposing-components-to-public
+NextPage: 091-linking-application-components
 ---
 
 Now that our backend is fully functional, we need to connect to it from our `frontend` so they can communicate.
