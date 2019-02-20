@@ -46,7 +46,13 @@ Again, we can tail the logs to verify that our application is up and running:
 odo log -f
 ```
 
-Hit `Crtl+C` when you're doing following the logs.
+Select the terminal window and enter:
+
+```execute-1
+<ctrl+c>
+```
+
+when you're finished checking out the logs.
 
 Once we have our application up an running, we need to test it works. We're going to create a URL for it, as we did before for the frontend.
 
