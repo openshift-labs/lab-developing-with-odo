@@ -1,6 +1,7 @@
 ---
 Title: Further Resources
 PrevPage: 110-installing-odo
+ExitSign: Finish Workshop
 ---
 
 Congratulations! You just learned the basics of using the `odo` tool to manage application components on the OpenShift Container Platform.
