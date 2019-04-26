@@ -6,7 +6,7 @@ NextPage: 061-exposing-components-to-public
 
 A selection of runtimes, frameworks, and other components is available on an OpenShift cluster for building your applications.
 
-``odo`` can connect to *OpenShift's Software Catalog* and provide a list of supported components and services. *Components* are the runtimes that the platform provides for you to build your component's source. We will see what services are in a later chapter.
+``odo`` can connect to *OpenShift's Service Catalog* and provide a list of supported components and services. *Components* are the runtimes that the platform provides for you to build your component's source. We will see what services are in a later chapter.
 
 To list the available component types in the catalog, run:
 
@@ -14,7 +14,7 @@ To list the available component types in the catalog, run:
 odo catalog list components
 ```
 
-__NOTE__: Sites can customize the software catalog, so the list will vary on different OpenShift clusters. For this course, the components we are interested in are ``java`` and ``nodejs``.
+__NOTE__: Administrators can customize the service catalog, so the list will vary on different OpenShift clusters. For this workshop, the components we are interested in are ``java`` and ``nodejs``.
 
 We're going to work now on a ``Java`` component that is part of our application. The source code for this component, that lives in:
 
@@ -44,39 +44,52 @@ __NOTE__: This environment has an .m2/repository available so the build speed is
 
 With the frontend's ``.jar`` file built, the next step is to use `odo` to deploy and run it atop the Java runtime we saw earlier in the software catalog.
 
-Use ``odo`` to create a *component* named ``frontend``, of *component-type* ``java``. Because we had prebuilt the binary artifact for the application, we will use a binary build, supplying the path to the ``.jar`` file.
+Use ``odo`` to create a configuration for a *component* named ``frontend``, of *component-type* ``java``. Because we had prebuilt the binary artifact for the application, we will use a binary build, supplying the path to the ``.jar`` file.
 
 ```execute-1
-odo create java frontend --binary target/parksmap-web.jar
+odo create java frontend --binary target/parksmap-web.jar --app parksmap
 ```
 
-When the container is created, ``odo`` will display output similar to that below, telling you what it is doing:
+When the configuration for the component is created, ``odo`` will display output similar to that below,:
 
 ```bash
-✓   Checking component
-✓   Checking component version
-✓   Creating component backend
-OK  Component 'frontend' was created and ports 8778/TCP,8080/TCP,8443/TCP were opened
-OK  Component 'frontend' is now set as active component
-To push source code to the component run 'odo push'
+odo create java frontend --binary target/parksmap-web.jar --app parksmap
+ ✓  Checking component
+ ✓  Checking component version
+Please use `odo push` command to create the component with source deployed
 ```
 
-The application is not yet deployed on OpenShift. With a single ``odo create`` command, OpenShift has created a container with the Java application server ready to have your application deployed to it. This container is not pushed into OpenShift's integrated container registry as it will be used for developing your application in an iterative way. This container is deployed into a pod running on the OpenShift cluster.
-
-Let's verify that the component exists already on the platform and is ready for your application:
+What does it mean for ``odo`` to create the configuration for a component? Let's take a look. 
 
 ```execute-1
-odo list
+ls -al .odo
 ```
 
-This should report one component, named ``frontend``:
+You'll see there is a file named `config.yaml` in the `.odo` directory. That `config.yaml` file contains configuration for our component.
+
+```execute-1
+cat .odo/config.yaml
+```
+
+The file will look something like this:
 
 ```
-ACTIVE     NAME        TYPE
-*          frontend     java
+kind: LocalConfig
+apiversion: odo.openshift.io/v1alpha1
+ComponentSettings:
+  Type: java
+  SourceLocation: target/parksmap-web.jar
+  SourceType: binary
+  Application: parksmap
+  Project: odo-odo-lab-1mkhv
+  Name: frontend
 ```
 
-Since ``frontend`` is a binary component, as specified in the ``odo create`` command above, changes to the program's source code should be followed by pushing the artifact to the running container. After ``mvn`` compiled a new JAR file, the updated program would be updated in the ``frontend`` component with the ``odo push`` command. To push up the binary, run:
+While we have this configuration defined, the application is not yet deployed on OpenShift.
+
+When we run `odo push`, a container will be created with the Java application server and then, since this is a binary component, your JAR file will be pushed to that container.
+
+To push up the binary artifact, run:
 
 ```execute-1
 odo push
@@ -85,14 +98,21 @@ odo push
 When the push completes, ``odo`` will display output similar to:
 
 ```
-Pushing changes to component: frontend
- ✓   Waiting for pod to start
- ✓   Copying files to pod
- ✓   Building component
- OK  Changes successfully pushed to component: frontend
+ ✓  Checking component
+ ✓  Checking component version
+ ✓  Creating java component with name frontend
+ ✓  Initializing 'frontend' component
+ ✓  Creating component frontend
+ ✓  Successfully created component frontend
+ ✓  Applying component settings to component: frontend
+ ✓  The component frontend was updated successfully
+ ✓  Successfully updated component with name: frontend
+ ✓  Pushing changes to component: frontend of type binary
+ ✓  Waiting for component to start
+ ✓  Copying files to component
+ ✓  Building component
+ ✓  Changes successfully pushed to component: frontend
 ```
-
-As you would probably have noticed, the artifact has been pushed to the container, and the process in that container restarted.
 
 You can verify that the Java runtime has started your application by tailing the logs for your component:
 
@@ -118,6 +138,7 @@ If you want to explicitly set these values, you could have done before:
 ```
 odo create java frontend \
     --binary target/parksmap-web.jar \
+    --app parksmap \
     --memory 1Gi \
     --cpu 1
 ```
@@ -129,6 +150,7 @@ If you want your component to get some minimum values and grow if needed, you co
 ```
 odo create java frontend \
     --binary target/parksmap-web.jar \
+    --app parksmap \
     --min-memory 512Mi \
     --max-memory 1Gi \
     --min-cpu 0.5 \
@@ -139,5 +161,8 @@ You can also set environment variables for your component at creation time. Thes
 
 ```
 odo create java frontend --binary target/parksmap-web.jar \
+    --app parksmap \
     --env DEBUG=true
 ```
+
+Now that you've created the `frontend` component for the application and pushed it to your OpenShift cluster, let's look at how you can access the application frontend.

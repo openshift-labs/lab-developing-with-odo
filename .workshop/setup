@@ -4,9 +4,9 @@ set -x
 
 set -eo pipefail
 
-# Try with latest odo
+# Use odo v1.0.0-beta1
 # ----------------
-curl -kLs https://dl.bintray.com/odo/odo/latest/linux-amd64/odo -o /opt/app-root/bin/odo-latest
+curl -kLs https://github.com/openshift/odo/releases/download/v1.0.0-beta1/odo-linux-amd64 -o /opt/app-root/bin/odo-latest
 chmod 755 /opt/app-root/bin/odo-latest
 # ----------------
 

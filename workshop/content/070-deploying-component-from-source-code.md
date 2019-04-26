@@ -16,15 +16,15 @@ Listing the contents of this directory shows that ``backend`` is a simple Node.j
 ls
 ```
 
-Since ``backend`` is written in an interpreted language, there is no build step analogous to the maven build we performed for the ``frontend`` component. We can proceed directly to selecting the ``nodejs`` environment from the cluster's software catalog.
+Since ``backend`` is written in an interpreted language, there is no build step analogous to the maven build we performed for the ``frontend`` component. We can proceed directly to selecting the ``nodejs`` environment from the cluster's service catalog.
 
 We give this Node.js component the name ``backend``.
 
 ```execute-1
-odo create nodejs backend
+odo create nodejs backend --app parksmap
 ```
 
-With the component named and created, you can ``push`` the Node.js source code from the current directory, ``backend``.
+With the component configuration created, you can ``push`` the Node.js source code from the current directory, ``backend``.
 
 ```execute-1
 odo push
@@ -33,11 +33,20 @@ odo push
 When the push completes, ``odo`` will display output similar to:
 
 ```bash
-Pushing changes to component: backend
- ✓   Waiting for pod to start
- ✓   Copying files to pod
- ✓   Building component
- OK  Changes successfully pushed to component: backend
+ ✓  Checking component
+ ✓  Checking component version
+ ✓  Creating nodejs component with name backend
+ ✓  Initializing 'backend' component
+ ✓  Creating component backend
+ ✓  Successfully created component backend
+ ✓  Applying component settings to component: backend
+ ✓  The component backend was updated successfully
+ ✓  Successfully updated component with name: backend
+ ✓  Pushing changes to component: backend of type local
+ ✓  Waiting for component to start
+ ✓  Copying files to component
+ ✓  Building component
+ ✓  Changes successfully pushed to component: backend
 ```
 
 Again, we can tail the logs to verify that our application is up and running:
@@ -57,10 +66,14 @@ when you're finished checking out the logs.
 Once we have our application up and running, we need to test it works. We're going to create a URL for it, as we did before for the frontend.
 
 ```execute-1
-odo url create backend
+odo url create backend --port 8080
 ```
 
-Note how this time you don't need to specify the port, as this component only exposes one port, 8080.
+Then push again to create the URL on the cluster:
+
+```execute-1
+odo push
+```
 
 This time we're going to test the application from command line, as it's a REST service.
 

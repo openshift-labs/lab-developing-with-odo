@@ -14,30 +14,18 @@ We can verify all existing applications on our project:
 odo app list
 ```
 
-As you have already deployed the sample application, you should be able to see it listed.
+You should see output similar to this:
 
-Let's create a new one. We will name this application `parksmap`:
-
-```execute-1
-odo app create parksmap
 ```
-
-One thing you should notice is how the prompt display has changed. This will not happen on every installation of ``odo`` but for this lab, we're displaying on the prompt text the name of the application you're working with and the name of the project you're working with.
-
-Now, you can verify that you have two applications by executing the same command as before:
-
-```execute-1
 odo app list
+The project 'odo-odo-lab-1mkhv' has the following applications:
+NAME
+app
 ```
 
-When there are multiple applications, there will only be one active application at a time. To switch between applications you can do:
+As you have already deployed the sample application, you should be able to see it listed. When you deployed the sample application, you didn't explicitly tell `odo` to create an application; it was done for you. In most cases, you do not need to explicitly set or specify an application name. 
 
-```
-odo app set <app-name>
-```
+However, you can do so if you choose for more complex, multi-component applications.
 
-And to know what's your current application, you can do:
+In the rest of the lab, we will use the application name `parksmap` for any components, services, etc. that we create in our application. 
 
-```execute-1
-odo app get
-```

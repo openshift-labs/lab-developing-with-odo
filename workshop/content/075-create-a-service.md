@@ -4,7 +4,7 @@ PrevPage: 070-deploying-component-from-source-code
 NextPage: 080-linking-components-to-services
 ---
 
-As we explained before, the *Software Catalog* available in OpenShift provides a list of runtimes to be used for your components, but also offers you the possibility to deploy COTS (Common Off the Shelf) software, like databases. We can see a list of these by querying the catalog:
+As we explained before, the *Service Catalog* available in OpenShift provides a list of runtimes to be used for your components, but also offers you the possibility to deploy COTS (Common Off the Shelf) software, like databases. We can see a list of these by querying the catalog:
 
 ```execute-1
 odo catalog list services
