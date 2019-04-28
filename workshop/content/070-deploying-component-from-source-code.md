@@ -24,6 +24,11 @@ We give this Node.js component the name ``backend``.
 odo create nodejs backend --app parksmap
 ```
 
+As we did for the ``frontend``, we'll also create a URL for the ``backend`` component.
+
+```execute-1
+odo url create backend --port 8080
+```
 With the component configuration created, you can ``push`` the Node.js source code from the current directory, ``backend``.
 
 ```execute-1
@@ -49,31 +54,19 @@ When the push completes, ``odo`` will display output similar to:
  ✓  Changes successfully pushed to component: backend
 ```
 
-Again, we can tail the logs to verify that our application is up and running:
+Again, we can look at the logs to verify that our application is up and running:
 
 ```execute-1
-odo log -f
+odo log 
 ```
 
-Select the terminal window and enter:
+You may need to run the command a few times before the app is ready. The message you need to see before continuing is:
 
-```execute-1
-<ctrl+c>
+```
+Listening on 0.0.0.0, port 8080
 ```
 
-when you're finished checking out the logs.
-
-Once we have our application up and running, we need to test it works. We're going to create a URL for it, as we did before for the frontend.
-
-```execute-1
-odo url create backend --port 8080
-```
-
-Then push again to create the URL on the cluster:
-
-```execute-1
-odo push
-```
+Once we have our application up and running, we need to test it works.
 
 This time we're going to test the application from command line, as it's a REST service.
 

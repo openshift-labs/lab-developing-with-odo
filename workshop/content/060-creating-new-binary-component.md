@@ -85,6 +85,12 @@ ComponentSettings:
   Name: frontend
 ```
 
+To view this in a more human-readable way, run:
+
+```execute-1
+odo config view
+```
+
 While we have this configuration defined, the application is not yet deployed on OpenShift.
 
 When we run `odo push`, a container will be created with the Java application server and then, since this is a binary component, your JAR file will be pushed to that container.
@@ -113,20 +119,6 @@ When the push completes, ``odo`` will display output similar to:
  ✓  Building component
  ✓  Changes successfully pushed to component: frontend
 ```
-
-You can verify that the Java runtime has started your application by tailing the logs for your component:
-
-```execute-1
-odo log -f
-```
-
-Select the terminal window and enter:
-
-```execute-1
-<ctrl+c>
-```
-
-when you're finished checking out the logs.
 
 ## Component configuration
 When creating a component, some configuration will be inherited by default, but there is a way to override these defaults.

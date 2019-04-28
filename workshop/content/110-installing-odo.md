@@ -7,7 +7,7 @@ NextPage: 120-finish
 The `odo` tool is a single executable written in the Go
 programming language and is available for the following operating systems:
 
-- Microsoft Windows 10 (or superior)
+- Microsoft Windows 10 (or later)
 - macOS 10
 - Linux
 
@@ -20,14 +20,14 @@ odo version
 You should see the following (or something similar):
 
 ```bash
-odo v0.0.17 (78a050bc)
+odo v1.0.0-beta1 (c226b008)
 ```
 
 If the `odo` command doesn't exist or you have an older version of it, follow the next sections to install or update the `odo` tool. Otherwise, skip to the next page.
 
 ## Download and Install odo CLI on Windows
 
-Download the the odo CLI tool for link: [Microsoft Windows](https://github.com/redhat-developer/odo/releases/download/v0.0.17/odo-windows-amd64.exe.gz)
+Download the the odo CLI tool for link: [Microsoft Windows](https://github.com/openshift/odo/releases/download/v1.0.0-beta1/odo-windows-amd64.exe.gz)
 
 Once the file has been downloaded, you will need to extract the contents as it
 is a compressed archive. I would suggest saving this file to the following directory:
@@ -60,7 +60,7 @@ out by printing the version of the odo command:
 You should see the following (or something similar):
 
 ```bash
-odo v0.0.17 (78a050bc)
+odo v1.0.0-beta1 (c226b008)
 ```
 
 If you get an error message, you have not updated your path correctly. If you
@@ -68,7 +68,7 @@ need help, raise your hand and the instructor will assist.
 
 ## Download and Install odo CLI on Linux
 
-Download the the odo CLI tool for [Linux 64](https://github.com/redhat-developer/odo/releases/download/v0.0.17/odo-linux-amd64.gz)
+Download the the odo CLI tool for [Linux 64](https://github.com/openshift/odo/releases/download/v1.0.0-beta1/odo-linux-amd64.gz)
 
 Once the file has been downloaded, you will need to extract the contents as it
 is a compressed archive. I would suggest saving this file to the following
@@ -103,7 +103,7 @@ odo version
 You should see the following (or something similar):
 
 ```bash
-odo v0.0.17 (78a050bc)
+odo v1.0.0-beta1 (c226b008)
 ```
 
 If you get an error message, you have not updated your path correctly. If you
@@ -111,7 +111,7 @@ need help, raise your hand and the instructor will assist.
 
 ## Download and Install odo CLI on Mac
 
-Download the the odo CLI tool for [Mac OS](https://github.com/redhat-developer/odo/releases/download/v0.0.17/odo-darwin-amd64.gz)
+Download the the odo CLI tool for [Mac OS](https://github.com/openshift/odo/releases/download/v1.0.0-beta1/odo-darwin-amd64.gz)
 
 Once the file has been downloaded, you will need to extract the contents as it
 is a compressed archive. I would suggest saving this file to the following
@@ -144,7 +144,7 @@ odo version
 You should see the following (or something similar):
 
 ```bash
-odo v0.0.17 (78a050bc)
+odo v1.0.0-beta1 (c226b008)
 ```
 
 If you get an error message, you have not updated your path correctly. If you
@@ -174,4 +174,4 @@ __NOTE__: The completion system will stop working if you either rename the odo e
 
 ## Further documentation
 
-For a list of other methods such as installing the latest mastery binary, or specific OS installations, visit the [installation page](https://github.com/redhat-developer/odo/blob/master/docs/installation.md)
+For a list of other methods such as installing the latest master binary, or specific OS installations, visit the [installation page](https://github.com/openshift/odo/blob/master/docs/installation.adoc)

@@ -15,4 +15,4 @@ NextPage: 110-installing-odo
 - Provide usage information about your component: memory, cpu usage.
 - Many more.
 
-Check the project's GitHub repository [https://github.com/redhat-developer/odo](https://github.com/redhat-developer/odo) and contribute if you can, or give feedback if you use it.
+Check the project's GitHub repository [https://github.com/openshift/odo](https://github.com/openshift/odo) and contribute if you can, or give feedback if you use it.

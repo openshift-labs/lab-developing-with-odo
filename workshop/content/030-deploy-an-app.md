@@ -65,7 +65,25 @@ The output will look something like this:
 
 `odo` has pushed the code into the component, built the application, and run it.
 
-To visit your application, copy the URL from the terminal window, open a new browser window and paste it into the URL address bar.
+We can tail the logs to make sure the application is up and running:
+
+```execute-1
+odo log -f
+```
+
+You're looking for this message:
+
+```
+Listening on 0.0.0.0, port 8080
+```
+
+And then run:
+
+```execute-1
+<ctrl+c>
+```
+
+To visit your application, copy the URL from the top terminal window, open a new browser window and paste it into the URL address bar.
 
 Alternatively, you can run the following command to get the URL:
 

@@ -26,32 +26,34 @@ When you don't specify any parameter to the creation of a service, you'll be int
 
 - *Which kind of service do you wish to create* Select `database` with the arrows and hit enter.
 - *Which database service class should we use* As you type `mongo` the list will be filtered. From the two available options, select `mongodb-ephemeral`
-- For the following options, just accept the defaults.
+- For the following options, accept the defaults **except** for the last question. Answer **y** to "Wait for the service to be ready".
 
 You will see something similar to this:
 
 ```bash
  odo service create
-? Which kind of service do you wish to create? database
-? Which database service class should we use? mongodb-ephemeral
+? Which kind of service do you wish to create database
+? Which database service class should we use mongodb-ephemeral
 ? Enter a value for string property DATABASE_SERVICE_NAME (Database Service Name): mongodb
 ? Enter a value for string property MEMORY_LIMIT (Memory Limit): 512Mi
 ? Enter a value for string property MONGODB_DATABASE (MongoDB Database Name): sampledb
 ? Enter a value for string property MONGODB_VERSION (Version of MongoDB Image): 3.2
 ? Provide values for non-required properties No
 ? How should we name your service  mongodb-ephemeral
- ✓  Service 'mongodb-ephemeral' was created
-Progress of the provisioning will not be reported and might take a long time.
-You can see the current status by executing 'odo service list'
+? Output the non-interactive version of the selected options No
+? Wait for the service to be ready Yes
+ ✓  Creating service
+ ✓  Waiting for service to come up
+ ✓  Service 'mongodb-ephemeral' is ready for use
 ```
 
-Now we can wait until the service is provisioned:
+Run the following to confirm that the service is provisioned:
 
 ```execute-1
 odo service list
 ```
 
-Keep re-running this command, and once provisioned, we should see similar output to this:
+You should see similar output to this:
 
 ```bash
 NAME                  TYPE                  STATUS

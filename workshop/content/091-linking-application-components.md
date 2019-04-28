@@ -16,15 +16,10 @@ __NOTE__: Here we have explicitly provided the component to which the link shoul
 
 This will inject configuration into the frontend about the backend and restart the frontend.
 
-Some components might expose multiple ports, and you need to select which one is the appropriate to use. In case you don't specify the port to use, you will see a nice warning message instructing you how to best proceed.
-
-Your frontend component will be redeployed.
-
-__NOTE__: We have found a bug in `odo` as we were testing this lab and you'll need to re-push your application again. This will be fixed in the coming week. Trust us :-D
+Now, re-push the component:
 
 ```execute-1
-cd ~/frontend
-odo push frontend
+odo push
 ```
 
 You can check the the startup logs:
@@ -46,3 +41,5 @@ Once the component has successfully been re-deployed you can see the changes in 
 http://frontend-parksmap-%project_namespace%.%cluster_subdomain%
 
 You should now see a nice map showing where you can find national parks.
+
+![parksmap with data](parksmap-data.png)
