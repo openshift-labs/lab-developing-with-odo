@@ -1,6 +1,6 @@
 ---
 Title: Deploying component from source code
-PrevPage: 061-exposing-components-to-public
+PrevPage: 065-exposing-components-to-public
 NextPage: 075-create-a-service
 ---
 

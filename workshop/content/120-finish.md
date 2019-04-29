@@ -1,6 +1,6 @@
 ---
 Title: Further Resources
-PrevPage: 110-installing-odo
+PrevPage: 115-odo-preferences
 ExitSign: Finish Workshop
 ---
 

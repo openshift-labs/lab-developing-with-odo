@@ -1,4 +1,4 @@
-FROM quay.io/openshiftlabs/workshop-dashboard:2.8.1
+FROM quay.io/openshiftlabs/workshop-dashboard:2.10.3
 
 RUN source /opt/workshop/etc/profile.d/python.sh && \
     pip install --no-cache-dir powerline-shell==0.7.0 && \
@@ -28,4 +28,4 @@ RUN rm Dockerfile .gitignore .dockerignore && \
 
 USER 1001
 
-ENV ODO_VERSION=0.0.17
+ENV ODO_VERSION=v1.0.0-beta1

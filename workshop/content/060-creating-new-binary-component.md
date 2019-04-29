@@ -1,7 +1,7 @@
 ---
 Title: Creating a new binary component
 PrevPage: 050-creating-an-application
-NextPage: 061-exposing-components-to-public
+NextPage: 062-component-configuration
 ---
 
 A selection of runtimes, frameworks, and other components is available on an OpenShift cluster for building your applications.
@@ -59,7 +59,7 @@ odo create java frontend --binary target/parksmap-web.jar --app parksmap
 Please use `odo push` command to create the component with source deployed
 ```
 
-What does it mean for ``odo`` to create the configuration for a component? Let's take a look. 
+What does it mean for ``odo`` to create the configuration for a component? Let's take a look.
 
 ```execute-1
 ls -al .odo
@@ -91,7 +91,7 @@ To view this in a more human-readable way, run:
 odo config view
 ```
 
-While we have this configuration defined, the application is not yet deployed on OpenShift.
+While we have this configuration defined, the application is not yet deployed on OpenShift. We will learn in the next lab more about the component's configuration.
 
 When we run `odo push`, a container will be created with the Java application server and then, since this is a binary component, your JAR file will be pushed to that container.
 
@@ -120,41 +120,4 @@ When the push completes, ``odo`` will display output similar to:
  ✓  Changes successfully pushed to component: frontend
 ```
 
-## Component configuration
-When creating a component, some configuration will be inherited by default, but there is a way to override these defaults.
-
-An example is the memory and cpu for your component. When deploying components in an OpenShift platform, ``odo`` will not impose any configuration for cpu and memory, but sometimes the platform does impose some values for the minimum and maximum cpu and memory a deployment can have.
-
-If you want to explicitly set these values, you could have done before:
-
-```
-odo create java frontend \
-    --binary target/parksmap-web.jar \
-    --app parksmap \
-    --memory 1Gi \
-    --cpu 1
-```
-
-This will guarantee that your component will be created requesting 1 GB of memory as minimum and maximum and 1 CPU as minimum and maximum.
-
-If you want your component to get some minimum values and grow if needed, you could also have done:
-
-```
-odo create java frontend \
-    --binary target/parksmap-web.jar \
-    --app parksmap \
-    --min-memory 512Mi \
-    --max-memory 1Gi \
-    --min-cpu 0.5 \
-    --max-cpu 1
-```
-
-You can also set environment variables for your component at creation time. These will be passed to your component and you will be able to use them within your application's code.
-
-```
-odo create java frontend --binary target/parksmap-web.jar \
-    --app parksmap \
-    --env DEBUG=true
-```
-
-Now that you've created the `frontend` component for the application and pushed it to your OpenShift cluster, let's look at how you can access the application frontend.
+Now that you've created the `frontend` component for the application and pushed it to your OpenShift cluster, let's look at how you can access the application frontend. But before we do that, it's time to do a little break to introduce you better to odo configuration.

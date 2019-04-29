@@ -1,6 +1,6 @@
 ---
 Title: Exposing components to public
-PrevPage: 060-creating-new-binary-component
+PrevPage: 062-component-configuration
 NextPage: 070-deploying-component-from-source-code
 ---
 
@@ -13,7 +13,7 @@ odo url create frontend --port 8080
 Similar to when we create a component, creating a URL sets that information in the component configuration, but it doesn't get applied to your OpenShift cluster until you run `odo push`.
 
 ```execute-1
-odo push
+odo push --show-log
 ```
 
 Watch the logs and wait until the component is ready.

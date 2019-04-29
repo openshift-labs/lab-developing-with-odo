@@ -1,5 +1,0 @@
-curl -kL https://ci.appveyor.com/api/buildjobs/47xtf9t8jisvwl25/artifacts/odo-linux-amd64.gz -o /opt/app-root/src/odo-linux-amd64.gz && \
-gunzip odo-linux-amd64.gz && \
-chmod 755 odo-linux-amd64 && \
-alias odo=/opt/app-root/src/odo-linux-amd64 && \
-odo version

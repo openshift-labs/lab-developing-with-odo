@@ -1,7 +1,7 @@
 ---
 Title: Installing odo
 PrevPage: 105-whats-next
-NextPage: 120-finish
+NextPage: 115-odo-preferences
 ---
 
 The `odo` tool is a single executable written in the Go
