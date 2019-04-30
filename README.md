@@ -3,129 +3,83 @@ Developing with Odo
 
 In this self paced workshop you will learn how to use OpenShift Do (`odo`) to build and deploy applications on the OpenShift Container Platform.
 
-Deploying the workshop
+Deploying the Workshop
 ----------------------
 
-To deploy the workshop for use at an event, such as a booth at a conference, where users will come and go and the number of users is unknown, you will need to deploy this to an OpenShift cluster using an account with cluster admin access.
+To deploy the workshop, first clone this Git repository to your own machine.
 
-First create a project under which the deployment for the workshop is to run. The project name `workshop` is recommended if available.
+Next create a project in OpenShift into which the workshop is to be deployed.
 
-```bash
-oc new-project workshop
+```
+oc new-project workshops
 ```
 
-Now create the deployment by running:
+From within the top level of the Git repository, now run:
 
-```bash
-oc new-app https://raw.githubusercontent.com/openshift-labs/workshop-jupyterhub/develop/templates/learning-portal-production.json \
-    --param PROJECT_NAME=workshop \
-    --param APPLICATION_NAME=odo \
-    --param TERMINAL_IMAGE=quay.io/jorgemoralespou/lab-devconf:master \
-    --namespace workshop
+```
+./.workshop/scripts/deploy-spawner.sh
 ```
 
-The value of the `PROJECT_NAME` template parameter must match the name of the project you created. You also need to supply the `--namespace` option with the same project name if the project isn't your current context.
+The name of the deployment will be ``developing-with-odo``.
 
-The value of the `APPLICATION_NAME` template parameter should be a name to identify the specific workshop.
+You can determine the hostname for the URL to access the workshop by running:
 
-The value of the `TERMINAL_IMAGE` is the name of the image on `quay.io` built from this repository, for this workshop.
-
-Once deployed, run:
-
-```bash
-oc get route/odo --namespace workshop
+```
+oc get route developing-with-odo
 ```
 
-to determine the name of the public route to access the workshop. Each user visiting the URL will get their own instance of the application delivering the workshop content and, embedded terminals and console.
+Editing the Workshop
+--------------------
 
-Working on the content
-----------------------
+The deployment created above will use a version of the workshop which has been pre-built into an image and which is hosted on ``quay.io``.
 
-To make changes to the content, there are a few methods you can
-use.
+To make changes to the workshop content and test them, edit the files in the Git repository and then run:
 
-The first way is to use a local docker service running on your own machine. The local container instance will be used to host the content while you work on it. You will still need a separate OpenShift cluster to test the deployments in if you want to execute any commands given in the steps.
-
-To use this method, first pull down the `workshop-dashboard` container image. You can switch to using the `latest` image, or other tagged version as necessary. You should use the same version as is used in the `Dockerfile`.
-
-```bash
-docker pull quay.io/openshiftlabs/workshop-dashboard:1.3.3
+```
+./.workshop/scripts/build-workshop.sh
 ```
 
-Run this image with `docker run`, exposing port `10080` so you can access it from your web browser. At the same time, mount the directory for the repository into the container at the directory `/opt/app-root/src`.
+This will replace the existing image used by the active deployment.
 
-```bash
-docker run --rm -p 10080:10080 -v `pwd`:/opt/app-root/src \
-    quay.io/openshiftlabs/workshop-dashboard:1.3.3
+If you are running an existing instance of the workshop, from your web browser select "Restart Workshop" from the menu top right of the workshop environment dashboard.
+
+When you are happy with your changes, push them back to the remote Git repository. This will automatically trigger a new build of the image hosted on ``quay.io``.
+
+If you need to change the RBAC definitions, or what resources are created when a project is created, change the definitions in the ``templates`` directory. You can then re-run:
+
+```
+./.workshop/scripts/deploy-spawner.sh
 ```
 
-Open a browser window against `http://localhost:10080`. Use the docker host IP if not running on `localhost`.
+and it will update the active definitions.
 
-This will allow you to check whether your content is displayed properly and navigate back and forth through the steps.
+Note that if you do this, you will need to re-run:
 
-Because you are not running in an OpenShift cluster, if you want to test running of commands against a cluster, you will need to first run `oc login` against the cluster you want to use, and provide any credentials for logging into that cluster. Alternatively, use `oc login --token` with an access token for the cluster. If the content assumes that you already have a project created for you, create a new project as necessary.
-
-Note that because you are only using the base image `workshop-dashboard` when running the container, if there are any build steps defined in the `Dockerfile`, they will not be run. You would therefore need to manually run any build steps to further setup the environment. Be aware that because you are mounting your local repository directory, those steps could add or remove files from it. Do not therefore run steps which would be destructive to the repository directory.
-
-Unless these additional steps are simple and non destructive, you are best off only using this method to test the display of content and any navigation.
-
-If you desire, you can with this method keep the container running and edit the content markdown files from your local machine. When you want to check it, you need only reload the browser window, or content frame, to see the changes. You do not need to restart the container. A restart of the container would only be required if modifying the `workshop/config.js` file.
-
-Testing the content
--------------------
-
-To build an image and test it in a local container run time, run:
-
-```bash
-docker build -t lab-developing-with-odo .
+```
+./.workshop/scripts/build-workshop.sh
 ```
 
-Then run it as:
+to have any local content changes be used once again as it will revert back to using the image on ``quay.io``.
 
-```bash
-docker run --rm -p 10080:10080 lab-developing-with-odo:latest
+Deleting the Workshop
+---------------------
+
+To delete the spawner and any active sessions, including projects, run:
+
+```
+./.workshop/scripts/delete-spawner.sh
 ```
 
-Open a browser window against `http://localhost:10080`. Use the docker host IP if not running on `localhost`.
+To delete the build configuration for the workshop image, run:
 
-As before you will need to login to any OpenShift cluster from the command line using `oc login`. In this case though, the build steps have been run, so no manual steps are required to set up the environment.
-
-To build an image and test it in conjunction with the learning portal deployment before pushing and making it public, first deploy an instance of the learning portal with an empty workshop image. Presuming the same `workshop` project is used, run:
-
-```bash
-oc new-app https://raw.githubusercontent.com/openshift-labs/workshop-jupyterhub/develop/templates/learning-portal-production.json \
-    --param PROJECT_NAME=workshop \
-    --param APPLICATION_NAME=odo-test \
-    --namespace workshop
+```
+./.workshop/scripts/delete-workshop.sh
 ```
 
-Ensure that the name of the application passed to `APPLICATION_NAME` is different to what was used above.
+To delete special resources for CRDs and cluster roles for the Kafa operator, run:
 
-Run:
-
-```bash
-oc get route/odo-test --namespace workshop
 ```
-to determine the URL for accessing this instance.
-
-Next create a binary build from the repository directory:
-
-```bash
-oc new-build --name=lab-deploying-to-odo --binary --strategy docker
+./.workshop/scripts/delete-resources.sh
 ```
 
-Each time you want to build a new version of the image to test, run:
-
-```bash
-oc start-build lab-deploying-to-odo --from-dir . --follow
-```
-
-Once the image has been built, update the learning portal image stream configuration to use your latest build.
-
-```bash
-oc tag lab-deploying-to-odo:latest odo-test-app:latest
-```
-
-This must be done each time to ensure that `latest` tag of `odo-test-app` is mapped to the image hash for the latest build.
-
-You can then click on the "Restart" button top right of the dashboard view to force any user session to be shutdown and a new started with the new version of the image to test.
+Only delete these last set of resources if the Kafa operator is not being used elsewhere in the cluster. Ideally this workshop environment should only be deployed in an expendable cluster, and not one which is shared for other work.

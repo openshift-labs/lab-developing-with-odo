@@ -4,7 +4,7 @@ RUN source /opt/workshop/etc/profile.d/python.sh && \
     pip install --no-cache-dir powerline-shell==0.7.0 && \
     fix-permissions /opt/app-root
 
-ENV TERMINAL_TAB=split
+ENV TERMINAL_TAB=split ODO_VERSION=v1.0.0-beta1
 
 RUN git clone https://github.com/openshift-labs/beercan-shooter-game.git sample && \
     fix-permissions /opt/app-root/src
@@ -19,13 +19,14 @@ COPY .workshop/assets/nodejs_assemble backend/.s2i/bin/assemble
 
 USER root
 
-COPY . /opt/app-root/src
+COPY . /tmp/src
 
-RUN rm Dockerfile .gitignore .dockerignore && \
-    chown -R 1001:0 /opt/app-root/src && \
-    fix-permissions /opt/app-root/src && \
-    mv workshop /opt/app-root/workshop
+RUN rm -rf /tmp/src/Dockerfile /tmp/src/.gitignore /tmp/src/.dockerignore && \
+    rm -rf /tmp/src/.git* && \
+    chown -R 1001 /tmp/src && \
+    chgrp -R 0 /tmp/src && \
+    chmod -R g+w /tmp/src
 
 USER 1001
 
-ENV ODO_VERSION=v1.0.0-beta1
+RUN /usr/libexec/s2i/assemble

@@ -1,5 +1,0 @@
-#!/bin/bash
-
-echo "This workshop doesn't use an S2I build, but instead uses a Dockerfile".
-
-exit 1
