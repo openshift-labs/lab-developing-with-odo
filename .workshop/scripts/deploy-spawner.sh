@@ -6,7 +6,7 @@ fail()
     exit 1
 }
 
-WORKSHOP_IMAGE="quay.io/openshiftlabs/lab-developing-with-odo:latest"
+WORKSHOP_IMAGE="quay.io/openshiftlabs/lab-developing-with-odo:summit-2019"
 
 TEMPLATE_REPO=https://raw.githubusercontent.com/openshift-labs/workshop-spawner
 TEMPLATE_VERSION=3.0.5
@@ -16,6 +16,9 @@ TEMPLATE_PATH=$TEMPLATE_REPO/$TEMPLATE_VERSION/templates/$TEMPLATE_FILE
 JUPYTERHUB_APPLICATION=${JUPYTERHUB_APPLICATION:-developing-with-odo}
 
 JUPYTERHUB_NAMESPACE=`oc project --short 2>/dev/null`
+
+IDLE_TIMEOUT=900
+MAX_SESSION_AGE=9000
 
 if [ "$?" != "0" ]; then
     fail "Error: Cannot determine name of project."
@@ -28,7 +31,9 @@ echo
 
 oc process -f $TEMPLATE_PATH \
     --param APPLICATION_NAME="$JUPYTERHUB_APPLICATION" \
-    --param PROJECT_NAME="$JUPYTERHUB_NAMESPACE" | oc apply -f -
+    --param PROJECT_NAME="$JUPYTERHUB_NAMESPACE" \
+    --param IDLE_TIMEOUT="$IDLE_TIMEOUT" \
+    --param MAX_SESSION_AGE="$MAX_SESSION_AGE" | oc apply -f -
 
 if [ "$?" != "0" ]; then
     fail "Error: Failed to create deployment for spawner."
