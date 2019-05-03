@@ -24,19 +24,19 @@ Now we start the ``odo`` tool to ``watch`` for changes on the file system in the
 odo watch
 ```
 
-We will make a small change to the displayed name for our backend, from "National Parks" to "Worldwide National Parks". To change the displayed name for our backend, we edit the file `bin/config.js`.
+We will make a small change to the displayed name for our backend from "National Parks" to "Worldwide National Parks". To change the displayed name for our backend, we edit the file `bin/config.js`.
 
 ```execute-1
 vi bin/config.js
 ```
 
-make a change to the file:
+Make a change to the file:
 
 ```execute-1
 :1,$s/National Parks/Worldwide National Parks/
 ```
 
-and save the file:
+Save the file:
 
 ```execute-1
 :wq
@@ -52,10 +52,15 @@ curl http://backend-parksmap-%project_namespace%.%cluster_subdomain%/ws/info/
 
 __NOTE__: The same bug as before also makes the watch operation be slow. As we said before, this will be fixed in the coming week. Trust us :-D
 
-Hit:
+You can expect to see the following to verify the backend successfully redeployed:
+
+```
+{"id":"nationalparks-js","displayName":"Worldwide National Parks (JS)","type":"cluster","center":{"latitude":"4
+7.039304","longitude":"14.505178"},"zoom":4}
+```
+
+Run the following to stop the watch command:
 
 ```execute-2
 <ctrl+c>
 ```
-
-in the lower terminal to stop the watch command.

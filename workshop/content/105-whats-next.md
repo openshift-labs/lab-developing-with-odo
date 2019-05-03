@@ -13,6 +13,6 @@ NextPage: 110-installing-odo
 - Provide debugging capabilities `odo debug`
 - Provide configuration capabilities for your components. `odo config`
 - Provide usage information about your component: memory, cpu usage.
-- Many more.
+- And much more.
 
 Check the project's GitHub repository [https://github.com/openshift/odo](https://github.com/openshift/odo) and contribute if you can, or give feedback if you use it.

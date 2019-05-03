@@ -28,13 +28,18 @@ You can check the the startup logs:
 odo log -f
 ```
 
-Hit:
+Similar to before, you can expect to see something similar to the following when the frontend has been successfully redeployed:
+
+```
+2019-05-03 19:17:24.055  INFO 912 --- [           main] c.o.evg.roadshow.ParksMapApplication     : Started Park
+sMapApplication in 10.51 seconds (JVM running for 11.128)
+```
+
+Run the following to stop tailing the logs:
 
 ```execute-1
 <ctrl+c>
 ```
-
-in the terminal to stop tailing the logs.
 
 Once the component has successfully been re-deployed you can see the changes in the map URL:
 

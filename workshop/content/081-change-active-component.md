@@ -8,7 +8,7 @@ Now that our backend is fully functional, we need to connect to it from our `fro
 
 As we're going to execute some actions with the `frontend` component, we need to set it as our active component.
 
-The current, or active, component is defined by the directory you're in with your shell, just as in *Git*. 
+The current, or active, component is defined by the directory you're in with your shell, just as in *Git*.
 
 To get a list of existing components within your application do:
 
@@ -31,7 +31,7 @@ The active component is the `backend`. You can either take one of two paths, cha
 odo <COMMAND> --component frontend
 ```
 
-Now to set the frontend as your active component, do:
+Now to set the `frontend` as your active component, run the following:
 
 ```execute-1
 cd ~/frontend
@@ -41,4 +41,12 @@ And verify that actually it was properly set:
 
 ```execute-1
 odo list
+```
+
+You should see the following if `frontend` is your active component:
+
+```
+ACTIVE     NAME         TYPE
+           backend      nodejs
+*          frontend     java
 ```
