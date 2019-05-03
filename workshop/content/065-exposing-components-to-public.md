@@ -16,14 +16,21 @@ Similar to when we create a component, creating a URL sets that information in t
 odo push --show-log
 ```
 
-Watch the logs and wait until the component is ready.
+As the `odo push` is executing, watch the logs in the lower terminal and wait until the component is ready by running the following:
 
 ```execute-2
 cd ~/frontend
 odo log -f
 ```
 
-You're looking for a message like this:
+In the upper terminal you should see:
+
+```
+✓  Building component
+✓  Changes successfully pushed to component: frontend
+```
+
+In the lower terminal, you're looking for a message like this:
 
 ```
 2019-04-26 23:55:05.355  INFO 752 --- [           main] c.o.evg.roadshow.ParksMapApplication

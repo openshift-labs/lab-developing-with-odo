@@ -34,6 +34,7 @@ With the component configuration created, you can ``push`` the Node.js source co
 ```execute-1
 odo push
 ```
+__NOTE__: Building the component may take 1-2 minutes to complete.
 
 When the push completes, ``odo`` will display output similar to:
 
@@ -57,7 +58,7 @@ When the push completes, ``odo`` will display output similar to:
 Again, we can look at the logs to verify that our application is up and running:
 
 ```execute-1
-odo log 
+odo log
 ```
 
 You may need to run the command a few times before the app is ready. The message you need to see before continuing is:
@@ -95,10 +96,8 @@ curl http://backend-parksmap-%project_namespace%.%cluster_subdomain%/ws/data/all
 
 You should see an error message in our component log. That is expected. Let's move on and deploy a database and link that database to our backend.
 
-Terminate the tailing log by entering:
+Terminate the tailing log by entering the following in the terminal with the error log message:
 
 ```execute-1
 <ctrl+c>
 ```
-
-in that terminal.

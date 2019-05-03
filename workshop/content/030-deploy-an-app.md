@@ -8,7 +8,7 @@ Typically an image is worth more than a thousand words, but in our world of IT, 
 
 Deploying an application in OpenShift is something that should be easy. Let's see if this is true.
 
-For this exploratory introduction to `odo` we have some working code that you'll deploy on the platform, and access it. We understand that a quick intro should not make you code an application, but just show you how the tool works once you have your code ready to try.
+For this exploratory introduction to `odo`, we have some working code that you'll deploy on the platform and access it. We understand that a quick intro should not make you code an application, but just show you how the tool works once you have your code ready to try.
 
 Get into the directory where the source code is located:
 
@@ -16,7 +16,7 @@ Get into the directory where the source code is located:
 cd sample
 ```
 
-Here, you will find the source code for an simple Node.js application. You can explore the source of our application:
+Here, you will find the source code for a simple Node.js application. You can explore the source of our application:
 
 ```execute-1
 ls
@@ -41,6 +41,8 @@ Now that the component configuration is created, we need to create the component
 odo push
 ```
 
+__NOTE__: Building the component may take 1-2 minutes to complete.
+
 The output will look something like this:
 
 ```
@@ -63,7 +65,7 @@ The output will look something like this:
  ✓  Changes successfully pushed to component: nodejs-tgfc
  ```
 
-`odo` has pushed the code into the component, built the application, and run it.
+`odo` has pushed the code into the component, built the application, and started the application.
 
 We can tail the logs to make sure the application is up and running:
 
@@ -83,9 +85,7 @@ And then run:
 <ctrl+c>
 ```
 
-To visit your application, copy the URL from the top terminal window, open a new browser window and paste it into the URL address bar.
-
-Alternatively, you can run the following command to get the URL:
+To visit your application, open a new browser window and paste the newly created URL into the address bar. You can run the following command to get the URL:
 
 ```execute-1
 odo url list
