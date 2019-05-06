@@ -88,4 +88,4 @@ git clone <COMPONENT_GIT_URL>
 odo push
 ```
 
-Soon you'll find many projects with odo configuration in place. For you to work with these applications you will only need to execute a simple command. Isn't that cool!!!
+Soon you'll find many projects with odo configuration in place. For you to work with these applications you will only need to execute a simple command. Isn't that cool!

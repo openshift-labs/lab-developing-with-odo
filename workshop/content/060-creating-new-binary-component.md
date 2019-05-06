@@ -6,7 +6,7 @@ NextPage: 062-component-configuration
 
 A selection of runtimes, frameworks, and other components is available on an OpenShift cluster for building your applications.
 
-``odo`` can connect to *OpenShift's Service Catalog* and provide a list of supported components and services. *Components* are the runtimes that the platform provides for you to build your component's source. We will see what services are in a later chapter.
+``odo`` can connect to *OpenShift's Service Catalog* and provide a list of supported components and services. *Components* are the runtimes that the platform provides for you to build your component's source. We will see what services are in a later exercise.
 
 To list the available component types in the catalog, run:
 
@@ -16,11 +16,7 @@ odo catalog list components
 
 __NOTE__: Administrators can customize the service catalog, so the list will vary on different OpenShift clusters. For this workshop, the components we are interested in are ``java`` and ``nodejs``.
 
-We're going to work now on a ``Java`` component that is part of our application. The source code for this component, that lives in:
-
-https://github.com/grahamdumpleton/parksmap-web
-
-has already been checked out and made available in the environment you are using.
+We're going to work now on a ``Java`` component that is part of our application. The source code for this component is available [here](https://github.com/grahamdumpleton/parksmap-web) and has already been checked out and made available in the environment you are using.
 
 Starting with the application frontend, change into the directory ``frontend``:
 
@@ -50,7 +46,7 @@ Use ``odo`` to create a configuration for a *component* named ``frontend``, of *
 odo create java frontend --binary target/parksmap-web.jar --app parksmap
 ```
 
-When the configuration for the component is created, ``odo`` will display output similar to that below,:
+When the configuration for the component is created, ``odo`` will display output similar to that below:
 
 ```bash
 odo create java frontend --binary target/parksmap-web.jar --app parksmap

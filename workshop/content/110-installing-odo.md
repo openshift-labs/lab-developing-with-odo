@@ -126,7 +126,7 @@ file. Once you are in the directory, enter in the following command:
 
 ```bash
 gunzip odo-darwin-amd64.gz
-````
+```
 
 Now you can add the odo CLI tools to your PATH.
 

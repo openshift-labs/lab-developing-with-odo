@@ -42,13 +42,19 @@ First we verify there's no data in the database:
 curl http://backend-parksmap-%project_namespace%.%cluster_subdomain%/ws/data/all
 ```
 
-We now load the database:
+If there is nothing in the database, you can expect the following result:
+
+```
+[]
+```
+
+We now load the data for our database:
 
 ```execute-2
 curl http://backend-parksmap-%project_namespace%.%cluster_subdomain%/ws/data/load
 ```
 
-And we again verify that the data is there:
+And now we verify that the data is there:
 
 ```execute-2
 curl http://backend-parksmap-%project_namespace%.%cluster_subdomain%/ws/data/all

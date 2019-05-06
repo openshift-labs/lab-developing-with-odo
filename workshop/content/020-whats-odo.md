@@ -13,12 +13,12 @@ OpenShift Do (`odo`) is a CLI tool for developers who are writing, building, and
 - Designed for fast, iterative development cycles
 - 100% client based. No server required within your OpenShift cluster for deployment
 - Supports multiple languages and frameworks such as Node.js, Java, Ruby, Perl, PHP and Python
-- Detect changes to your local code and deploy automatically with odo watch
+- Detect changes to your local code and deploy automatically with `odo watch`
 - List all available components and services from your OpenShift cluster
 
 ## Glossary
-In odo there are some terms that people often times use for different purposes, that's why we need to define them here for common understanding moving forward:
+In odo there are some terms that people often times use for different purposes. That's why we need to define them here for common understanding moving forward:
 
-- __Component__: A constituent part of an application that will be where your business logic will reside. A component will have different attributes like storage, configuration, urls, etc. Multiple component types are currently supported, like nodejs, perl, php, python, ruby, etc.
+- __Component__: A constituent part of an application that will be where your business logic will reside, such as user-facing front ends or server-side backends. A component will have different attributes like storage, configuration, urls, etc. Multiple component types are currently supported, like nodejs, perl, php, python, ruby, etc.
 - __Service__: A service will typically be a database or a "service" a component links to / depends on, but that has no business logic in it. For example: MariaDB, Jenkins, MySQL. These come from the OpenShift "Service Catalog" that has to be enabled within your cluster.
 - __Application__: Is, well, your application! An application serves as a loose grouping concept to group the components and services together. A complex application, for example, may consist of multiple components and services working collaboratively providing you the full business value.

@@ -6,7 +6,7 @@ NextPage: 050-creating-an-application
 
 In this course you will get a __deep__ introduction to the tool ``odo``. This tool provides a simplified command line client for deploying applications to OpenShift.
 
-The goal for this lab is to showcase `odo` and all of its primitives and to do so we're going to use a sample application. Don't judge the code for this sample application as it has been developed just for training purposes.
+The goal for this lab is to showcase `odo` and all of its primitives and to do so we're going to use a sample application. Don't focus too much on the code for this sample application as it has been developed just for training purposes.
 
 Now although the intent is to show as much as possible of what `odo` can do, because of how the workshop environment works, we have skipped how you can log in to OpenShift using `odo`. In the workshop environment, you have already been logged in from the terminal window. You also have a project created for you in advance.
 
