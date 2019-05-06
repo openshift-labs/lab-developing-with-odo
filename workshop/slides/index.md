@@ -1,1 +1,0 @@
-[Slides](devconf-slides.pdf)

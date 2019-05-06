@@ -1,6 +1,6 @@
 ---
 Title: Interacting with OpenShift
-PrevPage: 030-deploy-an-app
+PrevPage: 031-using-interactive-mode
 NextPage: 050-creating-an-application
 ---
 
