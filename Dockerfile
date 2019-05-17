@@ -1,4 +1,4 @@
-FROM quay.io/openshiftlabs/workshop-dashboard:2.10.3
+FROM quay.io/openshiftlabs/workshop-dashboard:2.10.5
 
 RUN source /opt/workshop/etc/profile.d/python.sh && \
     pip install --no-cache-dir powerline-shell==0.7.0 && \

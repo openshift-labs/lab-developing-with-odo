@@ -1,0 +1,11 @@
+---
+# tasks file for deprovision-lab-developing-with-odo
+- debug:
+    msg: "Removing workshop from {{ namespace }}"
+
+- name: Delete lab resources
+  command: oc delete services,routes,deploymentconfigs,deployments,daemonsets,imagestreams,secrets,configmaps,serviceaccounts,rolebindings,persistentvolumeclaims,pods -n {{ namespace }} -l app={{ item }}
+  with_items:
+    - "homeroom"
+    - "{{ __lab_name }}-{{ namespace }}"
+    - "prepull-{{ __lab_name }}"

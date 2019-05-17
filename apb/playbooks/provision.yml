@@ -1,0 +1,9 @@
+- name: lab-developing-with-odo playbook to provision the application
+  hosts: localhost
+  gather_facts: false
+  connection: local
+  vars:
+    apb_action: provision
+  roles:
+  - role: common-definitions
+  - role: provision-lab-developing-with-odo
