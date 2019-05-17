@@ -21,7 +21,7 @@ USER root
 
 COPY . /tmp/src
 
-RUN rm -rf /tmp/src/Dockerfile /tmp/src/.gitignore /tmp/src/.dockerignore && \
+RUN rm -rf /tmp/src/Dockerfile /tmp/src/.gitignore /tmp/src/.dockerignore && /tmp/src/apb && \
     rm -rf /tmp/src/.git* && \
     chown -R 1001 /tmp/src && \
     chgrp -R 0 /tmp/src && \
