@@ -31,6 +31,8 @@ homeroom_template_file: "production.json"
 homeroom_template_path: "{{homeroom_template_repo}}/{{homeroom_template_version}}/templates/{{homeroom_template_file}}"
 homeroom_app_name: "homeroom"
 
+nodeselector: ""
+
 images_to_prepull: 
   - image: "quay.io/openshiftlabs/workshop-spawner:{{ spawner_template_version }}"
     name: "spawner"

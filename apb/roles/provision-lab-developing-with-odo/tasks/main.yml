@@ -14,7 +14,23 @@
     src: ./templates/prepull.yaml.j2
     dest: /tmp/prepull.yaml
 
-- name: Create DaemonSet to Prepull images
+- name: Check for nodeselector compute
+  command: oc get nodes -l node-role.kubernetes.io/compute -o jsonpath='{ .items[*].metadata.name }'
+  register: compute_nodes
+
+- name: Check for nodeselector worker
+  command: oc get nodes -l node-role.kubernetes.io/worker -o jsonpath='{ .items[*].metadata.name }'
+  register: worker_nodes
+
+- set_fact:
+    nodeselector: "node-role.kubernetes.io/compute: 'true'"
+  when: compute_nodes.stdout != ''
+
+- set_fact:
+    nodeselector: "node-role.kubernetes.io/worker:"
+  when: worker_nodes.stdout != ''
+
+- name: Create DaemonSet to Prepull images (targeting worker/compute nodes if defined, else all)
   k8s:
     state: present
     src: /tmp/prepull.yaml
@@ -56,7 +72,7 @@
   command: oc rollout status dc/{{ __lab_name }} -n {{ namespace }}
 
 - name: Updating spawner to use image for workshop
-  command: oc tag "{{ __workshop_image }}" "{{ __lab_name }}-app:latest"
+  command: oc tag "{{ __workshop_image }}" "{{ __lab_name }}-app:latest" -n {{ namespace }}
 
 - name: Get homeroom Route
   k8s_facts:

@@ -16,7 +16,7 @@ spec:
         app: prepull-{{ __lab_name }}
     spec:
       nodeSelector:
-        node-role.kubernetes.io/compute: 'true'
+        {{ nodeselector }}
       containers:
         - image: gcr.io/google_containers/pause
           imagePullPolicy: Always

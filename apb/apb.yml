@@ -1,12 +1,12 @@
 version: '1.0.0'
-name: lab-developing-with-odo
+name: lab-developing-with-odo-apb
 description: APB to deploy Developing with odo Workshop on an OpenShift cluster
 bindable: False
 async: optional
 tags:
 - workshop
 metadata:
-  displayName: lab-developing-with-odo
+  displayName: "odo Workshop Installer"
   longDescription: |-
     Installs a workshop spawner for Developing applications with odo workshop
   console.openshift.io/iconClass: "fa fa-home"
