@@ -1,9 +1,3 @@
----
-Title: Linking components to services
-PrevPage: 075-create-a-service
-NextPage: 081-change-active-component
----
-
 Now that our database is deployed, we need to connect to it from our `backend` so they can communicate. OpenShift provides mechanisms to publish communication bindings from a program to its clients. This is referred to as linking.
 
 To link the current ``mongodb`` component to the ``backend``, you can run:

@@ -1,9 +1,3 @@
----
-Title: Deploying a sample application
-PrevPage: 020-whats-odo
-NextPage: 031-using-interactive-mode
----
-
 Typically an image is worth more than a thousand words, but in our world of IT, also an example is worth the same.
 
 Deploying an application in OpenShift is something that should be easy. Let's see if this is true.

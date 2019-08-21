@@ -1,9 +1,3 @@
----
-Title: Using interactive mode
-PrevPage: 030-deploy-an-app
-NextPage: 040-overview
----
-
 In the last section, you deployed the sample app in just a few steps, by telling `odo` exactly what you wanted to do. `odo` also has an interactive mode for some commands, where the tool will prompt you for input and guide you through the process. 
 
 Let's deploy the same sample app again, but this time we'll use interactive mode.

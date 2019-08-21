@@ -1,8 +1,3 @@
----
-Title: Developing applications on OpenShift as mere mortals
-NextPage: 020-whats-odo
----
-
 In this self-paced lab, you will learn how to use OpenShift Do (`odo`) to build and deploy applications on the OpenShift Container Platform.
 
 ## The Environment

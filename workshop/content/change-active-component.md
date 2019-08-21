@@ -1,9 +1,3 @@
----
-Title: Linking components to services
-PrevPage: 080-linking-components-to-services
-NextPage: 091-linking-application-components
----
-
 Now that our backend is fully functional, we need to connect to it from our `frontend` so they can communicate.
 
 As we're going to execute some actions with the `frontend` component, we need to set it as our active component.

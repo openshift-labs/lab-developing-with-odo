@@ -1,9 +1,3 @@
----
-Title: What's next
-PrevPage: 100-making-changes-to-source-code
-NextPage: 110-installing-odo
----
-
 `odo` is still in Beta stage. There is still a long way to go, but we're heavily working into making the experience better and making the tool more complete. Some things that are currently in our plans:
 
 - Obviously fix any bug :-D

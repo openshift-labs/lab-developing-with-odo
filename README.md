@@ -6,7 +6,19 @@ In this self paced workshop you will learn how to use OpenShift Do (`odo`) to bu
 Deploying the Workshop
 ----------------------
 
-To deploy the workshop, first clone this Git repository to your own machine.
+To deploy the workshop, first clone a copy of the master branch of this Git repository to your own machine using the command:
+
+```bash
+git clone --single-branch --branch master --recurse-submodules //github.com/openshift-labs/lab-developing-with-odo.git
+```
+
+Change the working directory to lab-developing-with-odo.
+
+If you forgot to use the --recurse-submodules option when cloning the repository, run:
+
+```bash
+git submodule update --init --recursive
+```
 
 Next create a project in OpenShift into which the workshop is to be deployed.
 
@@ -60,6 +72,13 @@ Note that if you do this, you will need to re-run:
 ```
 
 to have any local content changes be used once again as it will revert back to using the image on ``quay.io``.
+
+__NOTE__: If you want to update the version of the workshop scripts used with your workshop, run again the git submodule update --remote command. Then update the version of the dashboard base image in the Dockerfile to match.
+
+```
+git submodule update --remote
+(. .workshop/scripts/default-settings.sh; sed -i -e "s%^FROM .*$%FROM $DASHBOARD_IMAGE%" Dockerfile)
+```
 
 Deleting the Workshop
 ---------------------

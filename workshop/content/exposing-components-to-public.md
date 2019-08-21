@@ -1,9 +1,3 @@
----
-Title: Exposing components to public
-PrevPage: 062-component-configuration
-NextPage: 070-deploying-component-from-source-code
----
-
 We have deployed our sample application's frontend component. While this component exposes 3 different ports, we need to explicitly define that 8080 is the one we want for our external access. Let's create an external URL for our application so we can see it in action:
 
 ```execute-1

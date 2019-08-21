@@ -1,9 +1,3 @@
----
-Title: Creating a new binary component
-PrevPage: 050-creating-an-application
-NextPage: 062-component-configuration
----
-
 A selection of runtimes, frameworks, and other components is available on an OpenShift cluster for building your applications.
 
 ``odo`` can connect to *OpenShift's Service Catalog* and provide a list of supported components and services. *Components* are the runtimes that the platform provides for you to build your component's source. We will see what services are in a later exercise.

@@ -1,9 +1,3 @@
----
-Title: Creating an application
-PrevPage: 040-overview
-NextPage: 060-creating-new-binary-component
----
-
 Applications are often divided into components based on a logical division of labor. For example, an application might consist of a data-storage "backend" component that performs the application's primary work and permanently stores the results paired with a user interface "frontend" component that accesses the backend to retrieve data and display it to a user.
 
 As mentioned, applications often consist of two or more components that work together to implement the overall application. OpenShift helps organize these modular applications with a concept called, appropriately enough, the *application*. An OpenShift application represents all of an app's components in a logical management unit. The ``odo`` tool helps you manage that group of components and link them together as an application.

@@ -1,9 +1,3 @@
----
-Title: Interacting with OpenShift
-PrevPage: 031-using-interactive-mode
-NextPage: 050-creating-an-application
----
-
 In this course you will get a __deep__ introduction to the tool ``odo``. This tool provides a simplified command line client for deploying applications to OpenShift.
 
 The goal for this lab is to showcase `odo` and all of its primitives and to do so we're going to use a sample application. Don't focus too much on the code for this sample application as it has been developed just for training purposes.

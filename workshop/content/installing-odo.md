@@ -1,9 +1,3 @@
----
-Title: Installing odo
-PrevPage: 105-whats-next
-NextPage: 115-odo-preferences
----
-
 The `odo` tool is a single executable written in the Go
 programming language and is available for the following operating systems:
 

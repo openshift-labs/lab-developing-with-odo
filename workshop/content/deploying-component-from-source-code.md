@@ -1,9 +1,3 @@
----
-Title: Deploying component from source code
-PrevPage: 065-exposing-components-to-public
-NextPage: 075-create-a-service
----
-
 With the ``frontend`` component running, we are ready to bring up the backend component. Once again, source code for the component is already available in the environment you are using. Change directories to the ``backend`` directory.
 
 ```execute-1

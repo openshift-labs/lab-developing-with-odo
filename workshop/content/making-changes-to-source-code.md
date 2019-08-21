@@ -1,9 +1,3 @@
----
-Title: Making changes to source
-PrevPage: 091-linking-application-components
-NextPage: 105-whats-next
----
-
 We've deployed the first version of our sample application and tested it by visiting it with a browser. Let's look at how OpenShift and ``odo`` help make it easier to iterate on that app once it's running.
 
 Let's first get back to our `backend` component.

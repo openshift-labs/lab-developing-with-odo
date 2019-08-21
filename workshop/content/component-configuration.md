@@ -1,9 +1,3 @@
----
-Title: Component configuration
-PrevPage: 060-creating-new-binary-component
-NextPage: 065-exposing-components-to-public
----
-
 When creating a component, some configuration will be inherited by default, but there is a way to override these defaults.
 
 An example is the memory and cpu for your component. When deploying components in an OpenShift platform, ``odo`` will not impose any configuration for cpu and memory, but sometimes the platform does impose some values for the minimum and maximum cpu and memory a deployment can have.

@@ -1,4 +1,4 @@
-FROM quay.io/openshiftlabs/workshop-dashboard:2.10.5
+FROM quay.io/openshifthomeroom/workshop-dashboard:4.0.0
 
 RUN source /opt/workshop/etc/profile.d/python.sh && \
     pip install --no-cache-dir powerline-shell==0.7.0 && \
@@ -21,7 +21,7 @@ USER root
 
 COPY . /tmp/src
 
-RUN rm -rf /tmp/src/Dockerfile /tmp/src/.gitignore /tmp/src/.dockerignore && /tmp/src/apb && \
+RUN rm -rf /tmp/src/Dockerfile /tmp/src/.gitignore /tmp/src/.dockerignore /tmp/src/apb && \
     rm -rf /tmp/src/.git* && \
     chown -R 1001 /tmp/src && \
     chgrp -R 0 /tmp/src && \

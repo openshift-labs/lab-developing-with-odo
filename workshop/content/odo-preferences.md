@@ -1,9 +1,3 @@
----
-Title: Odo CLI preferences
-PrevPage: 110-installing-odo
-NextPage: 120-finish
----
-
 Once you have installed the CLI, you might want to configure some preferences/settings. Preferences are global behavior that will apply to the CLI or to all of the commands by default (unless a more specific configuration has been provided).
 
 Run this command to view the values for global `odo` preferences:
