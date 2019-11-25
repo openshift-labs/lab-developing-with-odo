@@ -37,15 +37,14 @@ With the frontend's ``.jar`` file built, the next step is to use `odo` to deploy
 Use ``odo`` to create a configuration for a *component* named ``frontend``, of *component-type* ``java``. Because we had prebuilt the binary artifact for the application, we will use a binary build, supplying the path to the ``.jar`` file.
 
 ```execute-1
-odo create java frontend --binary target/parksmap-web.jar --app parksmap
+odo create java:8 frontend --binary target/parksmap-web.jar --app parksmap
 ```
 
 When the configuration for the component is created, ``odo`` will display output similar to that below:
 
 ```bash
-odo create java frontend --binary target/parksmap-web.jar --app parksmap
- ✓  Checking component
- ✓  Checking component version
+odo create java:8 frontend --binary target/parksmap-web.jar --app parksmap
+ ✓  Validating component [10ms]
 Please use `odo push` command to create the component with source deployed
 ```
 
@@ -70,8 +69,12 @@ ComponentSettings:
   Type: java
   SourceLocation: target/parksmap-web.jar
   SourceType: binary
+  Ports:
+  - 8080/TCP
+  - 8443/TCP
+  - 8778/TCP
   Application: parksmap
-  Project: odo-odo-lab-1mkhv
+  Project: odo-93101
   Name: frontend
 ```
 
@@ -94,20 +97,18 @@ odo push
 When the push completes, ``odo`` will display output similar to:
 
 ```
- ✓  Checking component
- ✓  Checking component version
- ✓  Creating java component with name frontend
- ✓  Initializing 'frontend' component
- ✓  Creating component frontend
- ✓  Successfully created component frontend
- ✓  Applying component settings to component: frontend
- ✓  The component frontend was updated successfully
- ✓  Successfully updated component with name: frontend
- ✓  Pushing changes to component: frontend of type binary
- ✓  Waiting for component to start
- ✓  Copying files to component
- ✓  Building component
- ✓  Changes successfully pushed to component: frontend
+Validation
+ ✓  Checking component [19ms]
+
+Configuration changes
+ ✓  Initializing component
+ ✓  Creating component [107ms]
+
+Pushing to component frontend of type binary
+ ✓  Checking files for pushing [2ms]
+ ✓  Waiting for component to start [59s]
+ ✓  Syncing files to the component [43s]
+ ✓  Building component [3s]
 ```
 
 Now that you've created the `frontend` component for the application and pushed it to your OpenShift cluster, let's look at how you can access the application frontend. But before we do that, it's time to do a little break to introduce you better to odo configuration.

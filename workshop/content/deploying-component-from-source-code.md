@@ -33,21 +33,22 @@ __NOTE__: Building the component may take 1-2 minutes to complete.
 When the push completes, ``odo`` will display output similar to:
 
 ```bash
- ✓  Checking component
- ✓  Checking component version
- ✓  Creating nodejs component with name backend
- ✓  Initializing 'backend' component
- ✓  Creating component backend
- ✓  Successfully created component backend
- ✓  Applying component settings to component: backend
- ✓  The component backend was updated successfully
- ✓  Successfully updated component with name: backend
- ✓  Pushing changes to component: backend of type local
- ✓  Waiting for component to start
- ✓  Copying files to component
- ✓  Building component
- ✓  Changes successfully pushed to component: backend
-```
+ Validation
+ ✓  Checking component [23ms]
+
+Configuration changes
+ ✓  Initializing component
+ ✓  Creating component [98ms]
+
+Applying URL changes
+ ✓  URL backend: http://backend-parksmap-odo-93101.apps.example.com created
+
+Pushing to component backend of type local
+ ✓  Checking files for pushing [486488ns]
+ ✓  Waiting for component to start [39s]
+ ✓  Syncing files to the component [31s]
+ ✓  Building component [19s]
+ ✓  Changes successfully pushed to component```
 
 Again, we can look at the logs to verify that our application is up and running:
 

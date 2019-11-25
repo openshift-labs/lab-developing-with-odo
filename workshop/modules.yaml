@@ -23,7 +23,7 @@ modules:
         name: Exposing components to public
     deploying-component-from-source-code:
         name: Deploying component from source code
-    create-a-servic:
+    create-a-service:
         name: Deploying a service
     linking-components-to-services:
         name: Linking components to services

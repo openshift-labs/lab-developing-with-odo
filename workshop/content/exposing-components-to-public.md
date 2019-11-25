@@ -20,8 +20,19 @@ odo log -f
 In the upper terminal you should see:
 
 ```
-✓  Building component
-✓  Changes successfully pushed to component: frontend
+Validation
+ ✓  Checking component [28ms]
+
+Configuration changes
+ ✓  Retrieving component data [25ms]
+ ✓  Applying configuration [52s]
+
+Applying URL changes
+ ✓  URL frontend: http://frontend-parksmap-odo-93101.apps.example.com created
+
+Pushing to component frontend of type binary
+ ✓  Checking file changes for pushing [4ms]
+ ✓  No file changes detected, skipping build. Use the '-f' flag to force the build.
 ```
 
 In the lower terminal, you're looking for a message like this:

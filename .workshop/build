@@ -4,15 +4,9 @@ set -x
 
 set -eo pipefail
 
-# Use odo v1.0.0-beta1
+# Use odo v1.0.1
 # ----------------
-curl -kLs https://github.com/openshift/odo/releases/download/v1.0.0-beta1/odo-linux-amd64 -o /opt/app-root/bin/odo-v1.0.0-beta1
-chmod 755 /opt/app-root/bin/odo-v1.0.0-beta1
-# ----------------
-# Also get odo latest binary built
-# ----------------
-curl -kLs https://dl.bintray.com/odo/odo/latest/linux-amd64/odo -o /opt/app-root/bin/odo-latest
-chmod 755 /opt/app-root/bin/odo-latest
-# ----------------
+curl -kLs https://mirror.openshift.com/pub/openshift-v4/clients/odo/v1.0.1/odo-linux-amd64 -o /opt/app-root/bin/odo-v1.0.1
+chmod 755 /opt/app-root/bin/odo-v1.0.1
 
-/opt/app-root/bin/odo-latest preference set UpdateNotification false
+/opt/app-root/bin/odo-v1.0.1 preference set UpdateNotification false

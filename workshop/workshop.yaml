@@ -13,7 +13,7 @@ modules:
     - component-configuration
     - exposing-components-to-public
     - deploying-component-from-source-code
-    - create-a-servic
+    - create-a-service
     - linking-components-to-services
     - change-active-component
     - linking-application-components

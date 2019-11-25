@@ -40,23 +40,22 @@ __NOTE__: Building the component may take 1-2 minutes to complete.
 The output will look something like this:
 
 ```
- ✓  Checking component
- ✓  Checking component version
- ✓  Creating nodejs component with name nodejs-tgfc
- ✓  Initializing 'nodejs-tgfc' component
- ✓  Creating component nodejs-tgfc
- ✓  Successfully created component nodejs-tgfc
- ✓  Applying component settings to component: nodejs-tgfc
- ✓  Checking URL nodejs-tgfc-8080
- ✓  Successfully created URL for component: nodejs-tgfc
- ✓  http://nodejs-tgfc-8080-app-odo-odo-lab-53wy0.apps.osevg-e293.openshiftworkshop.com
- ✓  The component nodejs-tgfc was updated successfully
- ✓  Successfully updated component with name: nodejs-tgfc
- ✓  Pushing changes to component: nodejs-tgfc of type local
- ✓  Waiting for component to start
- ✓  Copying files to component
- ✓  Building component
- ✓  Changes successfully pushed to component: nodejs-tgfc
+Validation
+ ✓  Checking component [21ms]
+
+Configuration changes
+ ✓  Initializing component
+ ✓  Creating component [129ms]
+
+Applying URL changes
+ ✓  URL nodejs-sample-haxb-8080: http://nodejs-sample-haxb-8080-app-odo-93101.apps.example.com created
+
+Pushing to component nodejs-sample-haxb of type local
+ ✓  Checking files for pushing [1ms]
+ ✓  Waiting for component to start [56s]
+ ✓  Syncing files to the component [8s]
+ ✓  Building component [36s]
+ ✓  Changes successfully pushed to component
  ```
 
 `odo` has pushed the code into the component, built the application, and started the application.

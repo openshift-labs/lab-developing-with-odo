@@ -32,9 +32,12 @@ Enter values matching the output shown below:
 
 - Component type: `nodejs`
 - Version of Node.js: `10`
-- Location of context component, relative to '/opt/app-root/src/interactive/beercan-shooter-game: `/`
-- Input type: `local`
+- Which input type do you wish to use for the component: `local`
+- Location of context component, relative to '/opt/app-root/src/interactive/beercan-shooter-game: `.`
 - Component name: `sample`
+- Which application do you want the commponent to be associated with: `app`
+- Which project go you want the component to be created in: (<_ENTER_>)
+- Do you wish to set advanced options: `No`
 
 For all the remaining items, accept the defaults.
 
@@ -54,24 +57,23 @@ __NOTE__: Building the component may take 1-2 minutes to complete.
 The output will look something like this:
 
 ```
- ✓  Checking component
- ✓  Checking component version
- ✓  Creating nodejs component with name sample
- ✓  Initializing 'sample' component
- ✓  Creating component sample
- ✓  Successfully created component sample
- ✓  Applying component settings to component: sample
- ✓  Checking URL sample-8080
- ✓  Successfully created URL for component: sample
- ✓  http://sample-8080-app-developing-with-odo-jan-workshop1-k4vjq.apps.jkleinert-7a77.opensh
-iftworkshop.com
- ✓  The component sample was updated successfully
- ✓  Successfully updated component with name: sample
- ✓  Pushing changes to component: sample of type local
- ✓  Waiting for component to start
- ✓  Copying files to component
- ✓  Building component
- ✓  Changes successfully pushed to component: sample
+Validation
+ ✓  Checking component [22ms]
+
+Configuration changes
+ ✓  Initializing component
+ ✓  Creating component [101ms]
+
+Applying URL changes
+ ✓  URL sample-8080: http://sample-8080-app-odo-93101.apps.cluster-osevg-bc9c.osevg-bc9c.exampl
+e.opentlc.com created
+
+Pushing to component sample of type local
+ ✓  Checking files for pushing [1ms]
+ ✓  Waiting for component to start [51s]
+ ✓  Syncing files to the component [11s]
+ ✓  Building component [33s]
+ ✓  Changes successfully pushed to component
  ```
 
 `odo` has pushed the code into the component, built the application, and started the application.
