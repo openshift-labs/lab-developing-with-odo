@@ -11,6 +11,6 @@ if hash powerline-shell 2>/dev/null; then
     fi
 fi
 
-alias odo=odo-v1.0.1
+alias odo=odo-v1.1.0
 
 complete -C /opt/app-root/bin/odo odo
