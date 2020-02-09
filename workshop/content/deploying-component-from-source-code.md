@@ -48,7 +48,8 @@ Pushing to component backend of type local
  ✓  Waiting for component to start [39s]
  ✓  Syncing files to the component [31s]
  ✓  Building component [19s]
- ✓  Changes successfully pushed to component```
+ ✓  Changes successfully pushed to component
+ ```
 
 Again, we can look at the logs to verify that our application is up and running:
 

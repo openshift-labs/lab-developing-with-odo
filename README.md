@@ -61,7 +61,7 @@ git submodule update --init --recursive
 Next create a project in OpenShift into which the workshop is to be deployed.
 
 ```
-oc new-project workshops
+oc new-project labs
 ```
 
 From within the top level of the Git repository, now run:
@@ -78,14 +78,13 @@ The workshop is found in the catalog under the Workshops folder and is named OCP
 
 Once the cluster is deployed, follow the directions in the next section to begin the workshop itself.
 
-
-## Running the Workshop
-
 You can determine the hostname for the URL to access the workshop by running:
 
 ```
-oc -n workshops get route developing-with-odo
+oc -n labs get route odo-spawner
 ```
+
+## Running the Workshop
 
 When first accessing the workshop URL, the user may be presented with a warning about a potential security risk. This is due to the workshop using a self-signed certificate and users should be instructed to elect to continue to the site.
 
