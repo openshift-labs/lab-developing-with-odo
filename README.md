@@ -12,6 +12,13 @@
 
 The Developing with odo Workshop provides a deep introduction to the OpenShift Do (`odo`) command line tool. `odo` provides a simplified command line client for deploying applications to OpenShift. Participants will learn how to create and deploy applications, how to use interactive mode, how to link components and services, and how to do iterative development.
 
+| | |
+--- | ---
+| Audience Experience Level | Beginner |
+| Supported Number of Users | Up to 100 per cluster |
+| Average Time to Complete | 60 minutes |
+
+
 ### Agenda
 * Workshop Overview
 * What is `odo`
@@ -32,13 +39,6 @@ The Developing with odo Workshop provides a deep introduction to the OpenShift D
 * Installing `odo`
 * `odo` CLI Preferences
 * Further Resources
-
-
-| | |
---- | ---
-| Audience Experience Level | Beginner |
-| Supported Number of Users | Up to 100 |
-| Average Time to Complete | 1.5-2 hours |
 
 ## Deploying the Workshop
 
