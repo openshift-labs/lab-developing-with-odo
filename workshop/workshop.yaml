@@ -17,7 +17,5 @@ modules:
     - 120-deploying-component-from-source-code
     - 140-linking-application-components
     - 150-making-changes-to-source-code
-    - 160-whats-next
-    - 170-installing-odo
     - 180-odo-preferences
     - 190-finish

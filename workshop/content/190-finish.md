@@ -1,6 +1,6 @@
 ---
 Title: Further Resources
-PrevPage: 115-odo-preferences
+PrevPage: 180-odo-preferences
 ExitSign: Finish Workshop
 ---
 
@@ -18,9 +18,9 @@ https://learn.openshift.com has other tutorials from basic to advanced that offe
 
 Here are some of the ways you can get your own OpenShift cluster:
 
-### Minishift
+### CodeReady Containers
 
-Minishift is a complete OpenShift environment inside a virtual machine that runs on your local system. Minishift supports Windows, MacOS, and Linux operating systems. To find out more about minishift, visit http://www.openshift.org/vm
+CodeReady Containers brings a minimal, preconfigured OpenShift 4.1 or newer cluster to your local laptop or desktop computer for development and testing purposes. CodeReady Containers is delivered as a Red Hat Enterprise Linux virtual machine that supports native hypervisors for Linux, macOS, and Windows 10. To find out more, visit https://developers.redhat.com/products/codeready-containers/overview
 
 ### OpenShift Online
 

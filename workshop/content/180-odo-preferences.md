@@ -8,11 +8,11 @@ odo preference view
 
 The preference parameters are defined as follows:
 
-**NamePrefix** - Default prefix is the current directory name. Use this value to set a default name prefix
+**NamePrefix** - The default prefix is the current directory name. Use this value to set a default name prefix
 
 **Timeout** - Timeout (in seconds) for OpenShift server connection check
 
-**UpdateNotification** - Controls if an update notification is shown or not (true or false)
+**UpdateNotification** - Controls if an update notification is shown or not
 
 Like most of the configuration that modifies the behavior of a CLI, preferences can be set or unset.
 
@@ -20,7 +20,7 @@ Like most of the configuration that modifies the behavior of a CLI, preferences 
 odo preference set Timeout 20
 ```
 
-To update this value:
+Updating this value is done through the same command:
 
 ```execute-1
 odo preference set Timeout 30
