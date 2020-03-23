@@ -9,8 +9,8 @@ ENV TERMINAL_TAB=split ODO_VERSION=v1.1.0
 RUN git clone https://github.com/openshift-labs/beercan-shooter-game.git sample && \
     fix-permissions /opt/app-root/src
 
-RUN git clone https://github.com/openshift-roadshow/nationalparks-js backend && \
-    git clone https://github.com/openshift-roadshow/parksmap-web frontend && \
+RUN git clone https://github.com/openshift-roadshow/concession-kiosk-backend-java.git backend && \
+    git clone https://github.com/openshift-roadshow/concession-kiosk-frontend.git frontend && \
     (cd frontend && mvn package && mvn clean) && \
     fix-permissions /opt/app-root/src
 
