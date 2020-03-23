@@ -29,7 +29,7 @@ odo log -f
 Similar to before, you can expect to see something similar to the following when the frontend has been successfully redeployed:
 
 ```
-[nodemon] starting `node ./bin/www --inspect=5858`
+Listening on port 8080
 ```
 
 Run the following to stop tailing the logs:

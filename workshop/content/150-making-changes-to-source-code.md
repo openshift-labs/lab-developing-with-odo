@@ -1,57 +1,34 @@
-We've deployed the first version of our sample application and tested it by visiting it with a browser. Let's look at how OpenShift and ``odo`` help make it easier to iterate on that app once it's running.
+We've deployed the first version of our sample application and tested it by visiting it with a browser. Let's look at how OpenShift and odo help make it easier to iterate on that app once it's running.
 
-Let's first get back to our `backend` component.
+First, make sure you're in the frontend codebase:
 
 ```execute-1
-cd ~/backend
+cd ~/frontend
 ```
 
 Let's also make sure we're in the right directory on the lower terminal:
 
 ```execute-2
-cd ~/backend
+cd ~/frontend
 ```
 
-Now we start the ``odo`` tool to ``watch`` for changes on the file system in the background:
+Now we start the odo tool to *watch* for changes on the file system in the background:
 
 ```execute-2
 odo watch
 ```
 
-We will make a small change to the displayed name for our backend from "National Parks" to "Worldwide National Parks". To change the displayed name for our backend, we edit the file `bin/config.js`.
+We will make a small change to the Concession Kiosk web page to append "by odo" to the title:
 
 ```execute-1
-vi bin/config.js
+sed -i 's/Concession Kiosk/Concession Kiosk by odo/' views/index.ejs
 ```
 
-Make a change to the file:
+There may be a slight delay before the watch recognizes the change. Once the change is recognized, you'll see output in the `odo watch` command indicating the `index.ejs` file has changed and is being pushed to the running container.
 
-```execute-1
-:1,$s/National Parks/Worldwide National Parks/
-```
+Once it does, refresh the Concession Kiosk web page to see the new title:
 
-Save the file:
-
-```execute-1
-:wq
-```
-
-There may be a slight delay before ``odo`` recognizes the change. Once the change is recognized, ``odo`` will push the changes to the ``frontend`` component and print its status to the terminal.
-
-Once it does, make a new query to the REST endpoint to validate it has changed.
-
-```execute-1
-curl http://backend-parksmap-%project_namespace%.%cluster_subdomain%/ws/info/
-```
-
-__NOTE__: The same bug as before also makes the watch operation be slow. As we said before, this will be fixed in the coming week. Trust us :-D
-
-You can expect to see the following to verify the backend successfully redeployed:
-
-```
-{"id":"nationalparks-js","displayName":"Worldwide National Parks (JS)","type":"cluster","center":{"latitude":"4
-7.039304","longitude":"14.505178"},"zoom":4}
-```
+http://frontend-8080-concessions-%project_namespace%.%cluster_subdomain%/
 
 Run the following to stop the watch command:
 

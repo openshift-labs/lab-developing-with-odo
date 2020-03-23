@@ -4,6 +4,12 @@ With the `backend` component running, we are ready to bring up the frontend comp
 cd ~/frontend
 ```
 
+We'll also want to be in the same directory in the lower terminal:
+
+```execute-2
+cd ~/frontend
+```
+
 Listing the contents of this directory shows the application is a simple Node.js application.
 
 ```execute-1
@@ -66,7 +72,7 @@ odo log
 You may need to run the command a few times before the app is ready. The message you need to see before continuing is:
 
 ```
-[nodemon] starting `node ./bin/www --inspect=5858`
+Listening on port 8080
 ```
 
 Once we have our application up and running, we need to test it works. Open the following URL in a new browser:
