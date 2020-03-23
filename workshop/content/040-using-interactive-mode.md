@@ -1,23 +1,17 @@
-In the last section, you deployed the sample app in just a few steps, by telling `odo` exactly what you wanted to do. `odo` also has an interactive mode for some commands, where the tool will prompt you for input and guide you through the process. 
+In the last section, you deployed the sample application in just a few steps, by telling `odo` exactly what you wanted to do. `odo` also has an interactive mode for many of its commands, in which the tool will prompt you for input as it guides you through the process.
 
-Let's deploy the same sample app again, but this time we'll use interactive mode.
+Let's deploy the same sample application again, but this time we'll use interactive mode.
 
-First, let's clone the repo to get the source code:
-
-
-
-Get into the directory where the source code is located:
+First, make sure you're in the project directory:
 
 ```execute-1
-cd ~
-git clone https://github.com/openshift-labs/beercan-shooter-game.git
-cd beercan-shooter-game
+cd ~/sample
 ```
 
-Here, you will find the source code for the sample application. You can explore the source of our application:
+The sample application already has an odo configuration from the previous step in this lab, so delete that before moving on:
 
 ```execute-1
-ls
+rm -rf .odo
 ```
 
 This time, when we create our component, we'll just enter the top level `odo create` command and let the tool guide us through the process of creating the component.
@@ -33,20 +27,20 @@ Enter values matching the output shown below:
 - Component type: `nodejs`
 - Version of Node.js: `10`
 - Which input type do you wish to use for the component: `local`
-- Location of context component, relative to '/opt/app-root/src/interactive/beercan-shooter-game: `.`
+- Location of context component, relative to '/opt/app-root/src/sample: `.`
 - Component name: `sample`
 - Which application do you want the commponent to be associated with: `app`
 - Which project go you want the component to be created in: (<_ENTER_>)
 - Do you wish to set advanced options: `No`
 
-For all the remaining items, accept the defaults.
+For the remaining items, accept the defaults.
 
 Next, create a URL:
 
 ```execute-1
 odo url create --port 8080
 ```
-Now that the component configuration is created, we need to create the component on the cluster and push our source code to it:
+Now that the component configuration is created, we use the same steps to push the code to the cluster and build it:
 
 ```execute-1
 odo push
@@ -65,8 +59,7 @@ Configuration changes
  ✓  Creating component [101ms]
 
 Applying URL changes
- ✓  URL sample-8080: http://sample-8080-app-odo-93101.apps.cluster-osevg-bc9c.osevg-bc9c.exampl
-e.opentlc.com created
+ ✓  URL sample-8080: http://sample-8080-app-odo-93101.apps.cluster-osevg-bc9c.osevg-bc9c.example.opentlc.com created
 
 Pushing to component sample of type local
  ✓  Checking files for pushing [1ms]
@@ -90,7 +83,7 @@ You're looking for this message:
 Listening on 0.0.0.0, port 8080
 ```
 
-And then run:
+To exit the running log tail, run:
 
 ```execute-1
 <ctrl+c>
@@ -103,3 +96,9 @@ odo url list
 ```
 
 At this point, you should be able to view your application, which is identical to the one you created in the previous exercise. The only difference is that you used interactive mode to create it this time.
+
+Before moving on, free up the lab project's resources by deleting this sample application using the command:
+
+```execute-1
+odo delete -a
+```
