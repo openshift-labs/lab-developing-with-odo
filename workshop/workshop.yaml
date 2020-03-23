@@ -12,10 +12,9 @@ modules:
     - 070-creating-new-binary-component
     - 080-component-configuration
     - 090-exposing-components-to-public
-    - 100-deploying-component-from-source-code
-    - 110-create-a-service
-    - 120-linking-components-to-services
-    - 130-change-active-component
+    - 100-create-a-service
+    - 110-linking-components-to-services
+    - 120-deploying-component-from-source-code
     - 140-linking-application-components
     - 150-making-changes-to-source-code
     - 160-whats-next

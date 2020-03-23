@@ -1,22 +1,26 @@
-With both components of our application running on the cluster, we need to connect them so they can communicate. OpenShift provides mechanisms to publish communication bindings from a program to its clients. This is referred to as linking.
+With both components of our application running on the cluster, we need to connect them so they can communicate.
 
-To link the current ``frontend`` component to the ``backend``, you can run:
-
-```execute-1
-odo link backend --component frontend --port 8080
-```
-
-__NOTE__: Here we have explicitly provided the component to which the link should happen although it's not needed. It's only there for teaching purposes.
-
-This will inject configuration into the frontend about the backend and restart the frontend.
-
-Now, re-push the component:
+You should already be in the directory for the frontend project which provides the context for link. As the frontend will initiate connections to the backend, we link the backend (and the details of its component) to the frontend:
 
 ```execute-1
-odo push
+odo link backend --port 8080
 ```
 
-You can check the the startup logs:
+This will inject configuration about the backend component into the frontend  and restart the frontend. You'll see output similar to the following:
+
+```bash
+✓  Component backend has been successfully linked to the component frontend
+
+The below secret environment variables were added to the 'frontend' component:
+
+· COMPONENT_BACKEND_HOST
+· COMPONENT_BACKEND_PORT
+
+You can now access the environment variables from within the component pod, for example:
+$COMPONENT_BACKEND_HOST is now available as a variable within component frontend
+```
+
+After creating a new link, odo will automatically restart the frontend component to pick up the new environment variables. Once again, you can follow the logs to see when the frontend has started:
 
 ```execute-1
 odo log -f
@@ -25,8 +29,7 @@ odo log -f
 Similar to before, you can expect to see something similar to the following when the frontend has been successfully redeployed:
 
 ```
-2019-05-03 19:17:24.055  INFO 912 --- [           main] c.o.evg.roadshow.ParksMapApplication     : Started Park
-sMapApplication in 10.51 seconds (JVM running for 11.128)
+[nodemon] starting `node ./bin/www --inspect=5858`
 ```
 
 Run the following to stop tailing the logs:
@@ -35,10 +38,8 @@ Run the following to stop tailing the logs:
 <ctrl+c>
 ```
 
-Once the component has successfully been re-deployed you can see the changes in the map URL:
+Once the component has successfully been re-deployed you can return to the concessions site and submit an order:
 
-http://frontend-parksmap-%project_namespace%.%cluster_subdomain%
+http://frontend-8080-concessions-%project_namespace%.%cluster_subdomain%/
 
-You should now see a nice map showing where you can find national parks.
-
-![parksmap with data](parksmap-data.png)
+When you press the "Place Order" button, you'll get a confirmation page that displays the ticket number and a summary of the order.

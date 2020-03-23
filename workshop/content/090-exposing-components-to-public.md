@@ -59,5 +59,6 @@ The backend application was written with a debugging endpoint to show that the a
 
 ```execute-1
 curl http://backend-concessions-%project_namespace%.%cluster_subdomain%/debug
+```
 
 __NOTE__: When you don't specify a name for the URL to be created, it will default to the name of the component and port, e.g. `http://backend-concessions-%project_namespace%.%cluster_subdomain%`
