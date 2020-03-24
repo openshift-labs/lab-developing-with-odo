@@ -2,43 +2,37 @@ config:
     google_tracking_id: UA-135921114-9
 
 modules:
-    workshop-overview:
+    010-workshop-overview:
         name: Workshop Overview
         exit_sign: Start Workshop
-    whats-odo:
+    020-whats-odo:
         name: What is odo
-    deploy-an-app:
+    030-deploy-an-app:
         name: Deploying a sample application
-    using-interactive-mode:
+    040-using-interactive-mode:
         name: Using interactive mode
-    overview:
+    050-overview:
         name: Interacting with OpenShift
-    creating-an-application:
+    060-creating-an-application:
         name: Creating an application
-    creating-new-binary-component:
+    070-creating-new-binary-component:
         name: Creating a new binary component
-    component-configuration:
+    080-component-configuration:
         name: Component configuration
-    exposing-components-to-public:
+    090-exposing-components-to-public:
         name: Exposing components to public
-    deploying-component-from-source-code:
-        name: Deploying component from source code
-    create-a-service:
+    100-create-a-service:
         name: Deploying a service
-    linking-components-to-services:
+    110-linking-components-to-services:
         name: Linking components to services
-    change-active-component:
-        name: Set our active component
-    linking-application-components:
+    120-deploying-component-from-source-code:
+        name: Deploying component from source code
+    140-linking-application-components:
         name: Linking application components
-    making-changes-to-source-code:
+    150-making-changes-to-source-code:
         name: Making changes to source
-    whats-next:
-        name: What's next
-    installing-odo: 
-        name: Installing odo
-    odo-preferences:
+    180-odo-preferences:
         name: Odo CLI preferences
-    finish:
+    190-finish:
         name: Further Resources
         exit_sign: Finish Workshop
