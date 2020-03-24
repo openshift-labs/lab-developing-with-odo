@@ -13,12 +13,14 @@ odo link mongodb-ephemeral --component backend
 ```
 
 The link causes the MongoDB credentials secret to be exposed to the backend component. The code for the sample application is written with this knowledge and will look for the exposed environment variables when attempting to connect to the database.
-
+1
 Since this represents a configuration change for the backend, the pod is restarted. We can see when our application has been restarted by looking at the logs of the backend.
 
 ```execute-1
 odo log backend -f
 ```
+
+__NOTE__: The log tail may close when the application is restarted. If that happens before you see the message below, simply restart the log using the command above.
 
 __NOTE__: As a redeployment is happening in OpenShift, this might take some time. Check the logs until the component has successfully restarted. The message you need to see before continuing is:
 

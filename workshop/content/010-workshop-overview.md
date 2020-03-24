@@ -1,4 +1,4 @@
-In this self-paced lab, you will learn how to use OpenShift Do (`odo`) to build and deploy applications on the OpenShift Container Platform.
+In this self-paced lab, you will learn how to use OpenShift Do (odo) to build and deploy applications on the OpenShift Container Platform.
 
 ## The Environment
 

@@ -25,7 +25,7 @@ You will be prompted to enter selections for compnent type, version of Node.js, 
 Enter values matching the output shown below:
 
 - Component type: `nodejs`
-- Version of Node.js: `10`
+- Version of Node.js: `10-SCL`
 - Which input type do you wish to use for the component: `local`
 - Location of context component, relative to '/opt/app-root/src/sample: `.`
 - Component name: `sample`

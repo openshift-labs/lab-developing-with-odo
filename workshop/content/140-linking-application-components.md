@@ -26,6 +26,8 @@ After creating a new link, odo will automatically restart the frontend component
 odo log -f
 ```
 
+__NOTE__: The log tail may close when the application is restarted. If that happens before you see the message below, simply restart the log using the command above.
+
 Similar to before, you can expect to see something similar to the following when the frontend has been successfully redeployed:
 
 ```

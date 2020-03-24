@@ -16,6 +16,6 @@ There are no applications deployed in the project 'lab'
 
 Since you cleaned up the sample applications from the earlier examples, there shouldn't be any applications listed.
 
-When you deployed the sample applications from the earlier examples, you didn't explicitly tell `odo` to create an application; it was done for you. In most cases, you do not need to explicitly set or specify an application name. However, you can do so if you choose for more complex, multi-component applications.
+When you deployed the sample applications from the earlier examples, you didn't explicitly tell odo to create an application; it was done for you. In most cases, you do not need to explicitly set or specify an application name. However, you can do so if you choose for more complex, multi-component applications.
 
 In the rest of the lab, we will use the application name `concessions` for any components, services, etc. that we create.
