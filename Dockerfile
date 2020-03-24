@@ -11,7 +11,7 @@ RUN git clone https://github.com/openshift-labs/beercan-shooter-game.git sample 
 
 RUN git clone https://github.com/openshift-roadshow/concession-kiosk-backend-java.git backend && \
     git clone https://github.com/openshift-roadshow/concession-kiosk-frontend.git frontend && \
-    (cd frontend && mvn package && mvn clean) && \
+    (cd backend && mvn package && mvn clean) && \
     fix-permissions /opt/app-root/src
 
 USER root
