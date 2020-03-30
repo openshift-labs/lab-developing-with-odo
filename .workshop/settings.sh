@@ -1,5 +1,5 @@
 WORKSHOP_NAME=odo
-WORKSHOP_IMAGE=quay.io/openshiftlabs/lab-developing-with-odo:latest
+WORKSHOP_IMAGE=quay.io/openshiftlabs/lab-developing-with-odo:2.0
 WORKSHOP_TITLE="Developing applications with odo"
 WORKSHOP_DESCRIPTION="Developing applications with odo"
 WORKSHOP_MEMORY=512Mi
