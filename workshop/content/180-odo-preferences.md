@@ -20,6 +20,12 @@ Like most of the configuration that modifies the behavior of a CLI, preferences 
 odo preference set Timeout 20
 ```
 
+You can use the `view` command to verify the change:
+
+```execute-1
+odo preference view
+```
+
 Updating this value is done through the same command:
 
 ```execute-1
@@ -28,6 +34,12 @@ odo preference set Timeout 30
 
 Setting a previously set preference will prompt you for update confirmation.
 
+Again, the `view` command may be used to verify the change:
+
+```execute-1
+odo preference view
+```
+
 And to remove this preference:
 
 ```execute-1
@@ -35,5 +47,11 @@ odo preference unset Timeout
 ```
 
 As you can see, also removal of a preference will prompt you for confirmation.
+
+One more call to `view` shows that there is no value set for the Timeout; the default will be used:
+
+```execute-1
+odo preference view
+```
 
 As odo continues evolving more configuration will be added as preferences.

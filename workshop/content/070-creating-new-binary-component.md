@@ -32,7 +32,7 @@ mvn package
 
 __NOTE__: This environment has an `.m2/repository` available so the build speed is comparable to what you would find on your local laptop on subsequent builds after the first.
 
-With the frontend's JAR file built, the next step is to use `odo` to deploy and run it using the Java runtime we saw earlier in the software catalog.
+With the backend's JAR file built, the next step is to use `odo` to deploy and run it using the Java runtime we saw earlier in the software catalog.
 
 We'll use `odo` to create a configuration for a *component* named `backend`, of *component-type* `java`. Because we had prebuilt the binary artifact for the application, we will use a binary build, supplying the path to the ``.jar`` file.
 
@@ -102,7 +102,7 @@ Configuration changes
  ✓  Initializing component
  ✓  Creating component [107ms]
 
-Pushing to component frontend of type binary
+Pushing to component backend of type binary
  ✓  Checking files for pushing [2ms]
  ✓  Waiting for component to start [59s]
  ✓  Syncing files to the component [43s]

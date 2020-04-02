@@ -58,13 +58,13 @@ Pushing to component nodejs-sample-haxb of type local
 
 `odo` has pushed the code into a container on the cluster, built the application, and started it.
 
-We can tail the logs to make sure the application is up and running:
+We can tail the logs to make sure the application is up and running (any errors in the logs can safely be ignored for this example):
 
 ```execute-1
 odo log -f
 ```
 
-You're looking for this message to show the applicaiton is running:
+You're looking for this message to show the application is running:
 
 ```
 Listening on 0.0.0.0, port 8080
@@ -84,7 +84,7 @@ odo url list
 
 This simple example shows how easy it is to use the tool, as it takes many decisions out of your way. In the following labs we're going to go deeper into how to use `odo` and what it is doing.
 
-Before moving on, free up the lab project's resources by deleting this sample application using the command:
+Before moving on, free up the lab project's resources by deleting this sample application using the command, answering "yes" to both questions when prompted:
 
 ```execute-1
 odo delete -a

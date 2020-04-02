@@ -8,12 +8,6 @@ First, make sure you're in the project directory:
 cd ~/sample
 ```
 
-The sample application already has an odo configuration from the previous step in this lab, so delete that before moving on:
-
-```execute-1
-rm -rf .odo
-```
-
 This time, when we create our component, we'll just enter the top level `odo create` command and let the tool guide us through the process of creating the component.
 
 ```execute-1
@@ -25,7 +19,7 @@ You will be prompted to enter selections for compnent type, version of Node.js, 
 Enter values matching the output shown below:
 
 - Component type: `nodejs`
-- Version of Node.js: `10-SCL`
+- Version of Node.js: `10` (or `10-SCL` if that is an option)
 - Which input type do you wish to use for the component: `local`
 - Location of context component, relative to '/opt/app-root/src/sample: `.`
 - Component name: `sample`
