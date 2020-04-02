@@ -20,22 +20,21 @@ When you don't specify any parameters to the creation of a service, you'll be in
 
 - *Which kind of service do you wish to create* Select `database` with the arrows and hit enter.
 - *Which database service class should we use* As you type `mongo`, the list will be filtered. From the available options, select `mongodb-ephemeral`
-- For the following options, accept the defaults **except** for the last question. Answer **y** to "Wait for the service to be ready".
+
+Enter values matching the output shown below (these should be the same as the provided defaults in parentheses, in which case you can simply press `Enter` to accept the default):
+
+- Enter a value for string property DATABASE_SERVICE_NAME (Database Service Name): `mongodb`
+- Enter a value for string property MEMORY_LIMIT (Memory Limit): `512Mi`
+- Enter a value for string property MONGODB_DATABASE (MongoDB Database Name): `sampledb`
+- Enter a value for string property MONGODB_VERSION (Version of MongoDB Image): `3.6`
+- Provide values for non-required properties: `No`
+- How should we name your service: `mongodb-ephemeral`
+- Output the non-interactive version of the selected options: `No`
+- Wait for the service to be ready: `Yes`
 
 You will see something similar to this:
 
 ```bash
- odo service create
-? Which kind of service do you wish to create database
-? Which database service class should we use mongodb-ephemeral
-? Enter a value for string property DATABASE_SERVICE_NAME (Database Service Name): mongodb
-? Enter a value for string property MEMORY_LIMIT (Memory Limit): 512Mi
-? Enter a value for string property MONGODB_DATABASE (MongoDB Database Name): sampledb
-? Enter a value for string property MONGODB_VERSION (Version of MongoDB Image): 3.6
-? Provide values for non-required properties No
-? How should we name your service  mongodb-ephemeral
-? Output the non-interactive version of the selected options No
-? Wait for the service to be ready Yes
 Deploying service mongodb-ephemeral of type: mongodb-ephemeral
  ✓  Deploying service [33ms]
  ✓  Waiting for service to come up [1m]
