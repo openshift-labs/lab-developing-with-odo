@@ -47,7 +47,7 @@ The Developing with odo Workshop provides a deep introduction to the OpenShift D
 To deploy the workshop, first clone a copy of the master branch of this Git repository to your own machine using the command:
 
 ```bash
-git clone --single-branch --branch master --recurse-submodules //github.com/openshift-labs/lab-developing-with-odo.git
+git clone --single-branch --branch master --recurse-submodules http://github.com/openshift-labs/lab-developing-with-odo.git
 ```
 
 Change the working directory to lab-developing-with-odo.
