@@ -4,9 +4,12 @@ set -x
 
 set -eo pipefail
 
+export ODO_VERSION=latest
+
 # Use odo v1.1.0
 # ----------------
-curl -kLs https://mirror.openshift.com/pub/openshift-v4/clients/odo/v1.1.0/odo-linux-amd64 -o /opt/app-root/bin/odo-v1.1.0
-chmod 755 /opt/app-root/bin/odo-v1.1.0
-
-/opt/app-root/bin/odo-v1.1.0 preference set UpdateNotification false
+curl -o odo.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/odo/$ODO_VERSION/odo-linux-amd64.tar.gz && \
+    tar -xvf odo.tar.gz && \
+    rm -f odo.tar.gz && \
+    mv odo /usr/bin/odo && \
+    chmod +x /usr/bin/odo
