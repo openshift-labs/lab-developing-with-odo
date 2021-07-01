@@ -1,0 +1,28 @@
+## Logging in to OpenShift
+
+odo is a fast, iterative, and straightforward CLI tool for developers who write, build, and deploy applications on Kubernetes and OpenShift. Before we get started, you need to log in to OpenShift. In this lab enviroment, the odo CLI has already been installed for you.
+
+In this lab environment, you already have access to single project with your assigned user e.g. `userX`.
+
+You user is automatically logged to OpenShift with oc CLI:
+
+[source,bash,role=execute-1]
+----
+oc whoami
+----
+
+We will start by creating a new project by running `odo project create`:
+
+[source,bash,role=execute-1]
+----
+odo project create myproject
+----
+
+You should see the following output confirming the creation of a new OpenShift project called `myproject` and that `odo` is now using `myproject`:
+
+```
+ ✓  Project 'myproject' is ready for use
+ ✓  New project created and now using project : myproject
+```
+
+## The Web Console
