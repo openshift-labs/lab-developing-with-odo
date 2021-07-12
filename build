@@ -1,1 +1,21 @@
+#!/bin/bash
+
+# This 'build' script is where you can add steps that should be run when
+# building the image for your custom workshop.
+
+# Move the workshop content to '/opt/app-root/workshop'. It could be left
+# at it's default location of '/opt/app-root/src/workshop', but by moving it,
+# it is out of view of the user doing the workshop and they aren't likely to
+# delete it by accident and break the display of the workshop content.
+
+export ODO_VERSION=latest
+
 oc start-build lab-deploying-to-odo --from-dir=. --follow && oc tag lab-deploying-to-odo:latest odo-test-app:latest
+
+mv -f code/* . && rmdir code
+
+curl -o odo.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/odo/$ODO_VERSION/odo-linux-amd64.tar.gz && \
+    tar -xvf odo.tar.gz && \
+    rm -f odo.tar.gz && \
+    mv odo /usr/bin/odo && \
+    chmod +x /usr/bin/odo
