@@ -74,21 +74,13 @@ The name of the deployment will be ``developing-with-odo``.
 
 ### Deploying on Red Hat Product Demo System
 
-The workshop is found in the catalog under the Workshops folder and is named OCP4 Workshop Developing with ODO.
+The workshop is found in the catalog under the *Workshops* folder and is named *OCP4 Workshop Developing with ODO*.
 
 Once the cluster is deployed, follow the directions in the next section to begin the workshop itself.
 
-You can determine the hostname for the URL to access the workshop by running:
-
-```
-oc -n labs get route odo-spawner
-```
-
 ## Running the Workshop
 
-When first accessing the workshop URL, the user may be presented with a warning about a potential security risk. This is due to the workshop using a self-signed certificate and users should be instructed to elect to continue to the site.
-
-That URL leads to a login for the workshop itself.
+Access homeroom URL:
 
 ![Workshop Login](/docs/jupyter-login.png)
 
@@ -96,7 +88,7 @@ Users will enter the following information:
 
 | Key | Value |
 | --- | ----- |
-| Username | The user's e-mail address. This address is not saved anywhere outside of the workshop itself; it will not be used to follow up with the user. It simply acts as a unique identifier for the workshop instance. Logging into the site with a new username will cause a new instance of the workshop to be created (on the same cluster, however, so previously run cluster-wide operations will still be in effect. |
+| Username | userX (e.g. user1) |
 | Password | ``openshift`` |
 
 After logging in, the workshop takes a few seconds to start:
