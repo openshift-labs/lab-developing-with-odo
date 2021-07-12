@@ -1,9 +1,3 @@
----
-Title: Further Resources
-PrevPage: 115-odo-preferences
-ExitSign: Finish Workshop
----
-
 Congratulations! You just learned the basics of using the `odo` tool to manage application components on the OpenShift Container Platform.
 
 ## What's next?
@@ -12,7 +6,7 @@ We hope `odo` helps you conveniently access all the power OpenShift has to offer
 
 ## Learn OpenShift today
 
-https://learn.openshift.com has other tutorials from basic to advanced that offer a real cluster to learn on, just like this scenario. It's also easy to run your own OpenShift cluster locally, or to leave infrastructure management to Red Hat experts by using a hosted OpenShift.
+https://developers.redhat.com has plenty of resources from basic to advanced to learn and work with OpenShift
 
 ## Try OpenShift today
 
