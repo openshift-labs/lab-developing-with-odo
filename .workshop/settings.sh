@@ -1,5 +1,5 @@
 WORKSHOP_NAME=odo
-WORKSHOP_IMAGE=quay.io/cclyburn/lab-developing-with-odo:latest
+WORKSHOP_IMAGE=quay.io/bluesman/lab-developing-with-odo:latest
 WORKSHOP_TITLE="Developing applications with odo"
 WORKSHOP_DESCRIPTION="Developing applications with odo"
 WORKSHOP_MEMORY=512Mi
