@@ -14,9 +14,8 @@ set -eo pipefail
 
 export ODO_VERSION=latest
 
-oc start-build lab-deploying-to-odo --from-dir=. --follow && oc tag lab-deploying-to-odo:latest odo-test-app:latest
 
-mv -f code/* . && rmdir code
+#mv -f code/* . && rmdir code
 
 curl -o odo.tar.gz -L https://mirror.openshift.com/pub/openshift-v4/clients/odo/$ODO_VERSION/odo-linux-amd64.tar.gz && \
     tar -xvf odo.tar.gz && \
