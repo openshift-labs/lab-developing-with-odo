@@ -11,7 +11,6 @@ RUN git clone https://github.com/openshift-labs/beercan-shooter-game.git sample 
 
 RUN git clone https://github.com/openshift-roadshow/nationalparks-js backend && \
     git clone https://github.com/openshift-roadshow/parksmap-web frontend && \
-    (cd frontend && mvn package && mvn clean) && \
     fix-permissions /opt/app-root/src
 
 USER root
