@@ -2,8 +2,8 @@
 
 * [Overview](#overview)
 * [Deploying the Workshop](#deploying-the-workshop)
+  * [Deploying on Red Hat Product Demo System](#deploying-on-red-hat-product-demo-system-rhpds)
   * [Deploying to OpenShift](#deploying-to-openshift)
-  * [Deploying on Red Hat Product Demo System](#deploying-on-red-hat-product-demo-system)
 * [Running the Workshop](#running-the-workshop)
 * [Deleting the Workshop](#deleting-the-workshop)
 * [Development](#development)
@@ -42,7 +42,87 @@ The Developing with odo Workshop provides a deep introduction to the OpenShift D
 
 ## Deploying the Workshop
 
-### Deploying to OpenShift
+### Deploying on Red Hat Product Demo System (RHPDS)
+
+The workshop is found in the catalog under the *Workshops* folder and is named *OCP4 Workshop Developing with ODO*.
+
+Once the cluster is deployed, follow the directions in the next section to begin the workshop itself.
+
+#### Deploying on RHPDS with AgnosticD
+
+Login to the cluster.
+
+```bash
+oc login ...
+```
+
+Clone [AgnosticD](https://github.com/redhat-cop/agnosticd):
+
+```bash
+git clone https://github.com/redhat-cop/agnosticd
+```
+
+Install dependencies such as Python headers (Python.h), on Fedora:
+
+```bash
+sudo dnf install python3-dev
+```
+
+Setup Virtual Env:
+
+```bash
+agnosticd
+python3 -mvenv ~/virtualenv/ansible2.9-python3.6-2021-01-22
+. ~/virtualenv/ansible2.9-python3.6-2021-01-22/bin/activate
+ pip install -r https://raw.githubusercontent.com/redhat-cop/agnosticd/development/tools/virtualenvs/ansible2.9-python3.6-2021-01-22.txt
+```
+
+Run the playbooks:
+
+```bash
+OCP_USERNAME="opentlc-mgr"
+GUID=sampleuser
+WORKSHOP_PROJECT="labs"
+WORKLOAD="ocp4-workload-homeroomlab-odo"
+TARGET_HOST=localhost
+
+ansible-playbook -c local -i ${TARGET_HOST}, configs/ocp-workloads/ocp-workload.yml \
+      -e ansible_python_interpreter=/opt/app-root/bin/python \
+      -e ocp_workload=${WORKLOAD} \
+      -e guid=${GUID} \
+      -e project_name=${WORKSHOP_PROJECT} \
+      -e ocp_username=${OCP_USERNAME} \
+      -e ACTION="create" \
+      --extra-vars '{"num_users": 5, "user_count": 5}'
+```
+
+Access `labs` project and click to the Homeroom route.
+
+## Running the Workshop
+
+Access homeroom URL with OpenShift authentication.
+Users will enter the following information:
+
+| Key | Value |
+| --- | ----- |
+| Username | userX (e.g. user1) |
+| Password | ``openshift`` |
+
+After logging in, the workshop takes a few seconds to start:
+
+![Workshop Startup](/docs/starting-up.png)
+
+Once the workshop begins, users are presented with a two panel interface:
+
+![Workshop Terminal](/docs/workshop-terminal.png)
+
+On the left are the instructions users will follow for the workshop. The workshop itself explains how to use the interface, but generally speaking users will follow the directions on the left, with navigation buttons appearing at the end of each section. Text that is highlighted with a yellow background may be clicked to have the operation automatically executed in the cluster on the right.
+
+By default, users are presented with the terminal, which contains (among other things) an authenticated ``oc`` client. 
+
+### Deploying to OpenShift (MODE NOT SUPPORTED)
+
+WARNING: Homeroom is EOL, this way to deploy it outside RHPDS is not supported anymore.
 
 To deploy the workshop, first clone a copy of the master branch of this Git repository to your own machine using the command:
 
@@ -72,47 +152,7 @@ From within the top level of the Git repository, now run:
 
 The name of the deployment will be ``developing-with-odo``.
 
-### Deploying on Red Hat Product Demo System
 
-The workshop is found in the catalog under the Workshops folder and is named OCP4 Workshop Developing with ODO.
-
-Once the cluster is deployed, follow the directions in the next section to begin the workshop itself.
-
-You can determine the hostname for the URL to access the workshop by running:
-
-```
-oc -n labs get route odo-spawner
-```
-
-## Running the Workshop
-
-When first accessing the workshop URL, the user may be presented with a warning about a potential security risk. This is due to the workshop using a self-signed certificate and users should be instructed to elect to continue to the site.
-
-That URL leads to a login for the workshop itself.
-
-![Workshop Login](/docs/jupyter-login.png)
-
-Users will enter the following information:
-
-| Key | Value |
-| --- | ----- |
-| Username | The user's e-mail address. This address is not saved anywhere outside of the workshop itself; it will not be used to follow up with the user. It simply acts as a unique identifier for the workshop instance. Logging into the site with a new username will cause a new instance of the workshop to be created (on the same cluster, however, so previously run cluster-wide operations will still be in effect. |
-| Password | ``openshift`` |
-
-After logging in, the workshop takes a few seconds to start:
-
-![Workshop Startup](/docs/starting-up.png)
-
-Once the workshop begins, users are presented with a two panel interface:
-
-![Workshop Terminal](/docs/workshop-terminal.png)
-
-On the left are the instructions users will follow for the workshop. The workshop itself explains how to use the interface, but generally speaking users will follow the directions on the left, with navigation buttons appearing at the end of each section. Text that is highlighted with a yellow background may be clicked to have the operation automatically executed in the cluster on the right.
-
-By default, users are presented with the terminal, which contains (among other things) an authenticated ``oc`` client. The ``Console`` tab on the right can be clicked to open the OpenShift web console. Again, the user will already be authenticated; if a workshop requires users to change their logged in OpenShift user, the workshop instructions will specifically mention that.
-
-![Workshop Console](/docs/workshop-console.png)
-An example of the lab guides is available [here](http://devops-guides-labs.b9ad.pro-us-east-1.openshiftapps.com/).
 
 ## Deleting the Workshop
 

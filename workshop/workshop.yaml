@@ -1,24 +1,13 @@
 name: Develop applications with odo
-description: Developing applications on OpenShift as Mere Mortals
 
 modules:
     activate:
-    - workshop-overview
-    - whats-odo
-    - deploy-an-app
-    - using-interactive-mode
-    - overview
-    - creating-an-application
-    - creating-new-binary-component
-    - component-configuration
-    - exposing-components-to-public
-    - deploying-component-from-source-code
-    - create-a-service
-    - linking-components-to-services
-    - change-active-component
-    - linking-application-components
-    - making-changes-to-source-code
-    - whats-next
-    - installing-odo 
-    - odo-preferences
+    - intro
+    - 00-application-overview
+    - 01-creating-initial-project
+    - 02-creating-new-binary-component
+    - 03-deploying-component-from-source-code
+    - 04-configuring-components
+    - 05-exposing-components-to-public
+    - 06-making-changes-to-source-code
     - finish

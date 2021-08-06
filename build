@@ -1,1 +1,0 @@
-oc start-build lab-deploying-to-odo --from-dir=. --follow && oc tag lab-deploying-to-odo:latest odo-test-app:latest

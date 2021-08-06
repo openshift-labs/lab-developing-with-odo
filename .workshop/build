@@ -1,12 +1,27 @@
 #!/bin/bash
 
+# This 'build' script is where you can add steps that should be run when
+# building the image for your custom workshop.
+
+# Move the workshop content to '/opt/app-root/workshop'. It could be left
+# at it's default location of '/opt/app-root/src/workshop', but by moving it,
+# it is out of view of the user doing the workshop and they aren't likely to
+# delete it by accident and break the display of the workshop content.
+
 set -x
 
 set -eo pipefail
 
-# Use odo v1.1.0
-# ----------------
-curl -kLs https://mirror.openshift.com/pub/openshift-v4/clients/odo/v1.1.0/odo-linux-amd64 -o /opt/app-root/bin/odo-v1.1.0
-chmod 755 /opt/app-root/bin/odo-v1.1.0
+export ODO_VERSION=latest
 
-/opt/app-root/bin/odo-v1.1.0 preference set UpdateNotification false
+git clone https://github.com/openshift-evangelists/Wild-West-Backend.git ~/backend > /dev/null 2>&1
+git clone https://github.com/openshift-evangelists/Wild-West-Frontend.git ~/frontend > /dev/null 2>&1
+
+#mv -f code/* . && rmdir code
+mkdir -p .bin && echo "export PATH=$HOME/.bin:$PATH" >> .bash_profile
+
+
+curl -kL https://mirror.openshift.com/pub/openshift-v4/clients/odo/$ODO_VERSION/odo-linux-amd64.tar.gz -o /tmp/odo.tar.gz && \
+  tar -xvf /tmp/odo.tar.gz -C /tmp && \
+  chmod 755 /tmp/odo && \
+  mv /tmp/odo .bin
