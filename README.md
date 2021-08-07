@@ -71,7 +71,7 @@ sudo dnf install python3-dev
 Setup Virtual Env:
 
 ```bash
-agnosticd
+cd agnosticd
 python3 -mvenv ~/virtualenv/ansible2.9-python3.6-2021-01-22
 . ~/virtualenv/ansible2.9-python3.6-2021-01-22/bin/activate
  pip install -r https://raw.githubusercontent.com/redhat-cop/agnosticd/development/tools/virtualenvs/ansible2.9-python3.6-2021-01-22.txt
@@ -87,13 +87,13 @@ WORKLOAD="ocp4-workload-homeroomlab-odo"
 TARGET_HOST=localhost
 
 ansible-playbook -c local -i ${TARGET_HOST}, configs/ocp-workloads/ocp-workload.yml \
-      -e ansible_python_interpreter=/opt/app-root/bin/python \
+      -e ansible_python_interpreter=python \
       -e ocp_workload=${WORKLOAD} \
       -e guid=${GUID} \
       -e project_name=${WORKSHOP_PROJECT} \
       -e ocp_username=${OCP_USERNAME} \
       -e ACTION="create" \
-      --extra-vars '{"num_users": 5, "user_count": 5}'
+      --extra-vars '{"num_users": 5}'
 ```
 
 Access `labs` project and click to the Homeroom route.
